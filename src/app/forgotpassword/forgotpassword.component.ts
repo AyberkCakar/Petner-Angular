@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../utils/services';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -8,12 +9,14 @@ import { Router } from '@angular/router';
 })
 export class ForgotpasswordComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private _authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  go(){
-    this.router.navigateByUrl('/passwordcode')
+
+  async mailSend(mail: string)
+  {
+    
   }
 }

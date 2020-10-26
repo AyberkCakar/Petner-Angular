@@ -13,7 +13,8 @@ export class PasswordcodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  go(){
-    this.router.navigateByUrl('/newpassword')
+  async newPassword(code: string, mail: string, newpassword: string)
+  {
+
   }
 }
