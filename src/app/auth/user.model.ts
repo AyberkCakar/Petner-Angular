@@ -1,7 +1,7 @@
 export class UserModel {
-  Name: string;
-  Surname: string;
-  Phone: string;
-  Email: string;
-  Password: string;
+  personName: string;
+  personLastName: string;
+  personPhone: string;
+  personEmail: string;
+  password: string;
 }

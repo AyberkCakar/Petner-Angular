@@ -12,32 +12,30 @@ export class AuthService {
   ) {}
 
   async login(user) {
-    try {
-      const respone: any = await this._apiFetchService.requestAsync(
+    try{
+      var response = await this._apiFetchService.requestAsync(
         'POST',
-        'login/admin',
-        user
-      );
-      localStorage.setItem('token', respone.token);
-      this._router.navigateByUrl('home');
-    } catch (error) {
-    }
+        'login',
+        user); 
+    //this._cookie.set('token',response.data)
+    console.log(response);
+
+    return response;
+    }catch(error)
+    {
+      console.log(error);
+
+    }      
+      
   }
 
-  async tokenDecode() {
-    try {
-      if (localStorage.getItem('token') != null) {
-        const response: any = await this._apiFetchService.requestAsync(
-          'GET',
-          'token-decode',
-          null,
-          true
-        );
-        return response;
-      }
-      return false;
-    } catch (error) {
-      return false;
-    }
+  async signupAsync(values)
+  {
+    return await this._apiFetchService.requestAsync('POST','signup',values); 
   }
+  async testAsync()
+  {
+    return await this._apiFetchService.requestAsync('GET',''); 
+  }
+
 }
