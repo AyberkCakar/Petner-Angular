@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Petner-Angular": {
+    "demo1": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,12 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Petner-Angular",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -45,6 +47,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -52,12 +55,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "12mb"
                 }
               ]
             }
@@ -66,19 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Petner-Angular:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "browserTarget": "demo1:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Petner-Angular:build:production"
+              "browserTarget": "demo1:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Petner-Angular:build"
+            "browserTarget": "demo1:build"
           }
         },
         "test": {
@@ -115,19 +112,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Petner-Angular:serve"
+            "devServerTarget": "demo1:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Petner-Angular:serve:production"
+              "devServerTarget": "demo1:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Petner-Angular",
+  "defaultProject": "demo1",
   "cli": {
-    "analytics": "04c1580c-827a-4af1-9cdc-388923559e6b"
+    "analytics": false
   }
 }
