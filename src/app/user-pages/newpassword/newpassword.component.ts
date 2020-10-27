@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {PasswordModel} from '../password.model'
 import { AuthService } from '../../../utils/services';
+import {ErrorModel} from '../../error.model'
 
 @Component({
   selector: 'app-newpassword',
@@ -16,6 +17,7 @@ export class NewpasswordComponent implements OnInit {
   }
 
   model: PasswordModel = new PasswordModel();
+  error: ErrorModel = new ErrorModel();
 
   async newPassword(code: string, mail: string, newpassword: string)
   {
@@ -24,15 +26,17 @@ export class NewpasswordComponent implements OnInit {
     this.model.personPassword = newpassword;
     try{
       let response = await this._authService.newpasswordAsync(this.model);
-      if(response['message'] == 'Şifre başarıyla güncellendi')
+      this.error.error=response['error'];
+      this.error.message = response['message'];
+
+      if( this.error.message == 'Şifre başarıyla güncellendi')
       {
         this.router.navigateByUrl('/user-pages/login');
       }
-      console.log(response);
-
     }catch(e)
     {
-      console.log(e);
+      this.error.error=true;
+      this.error.message= '* Bir Problem Oluştu !';
     }
   }
 }
