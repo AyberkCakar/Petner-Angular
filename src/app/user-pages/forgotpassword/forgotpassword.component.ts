@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../utils/services';
 import {PasswordModel} from '../password.model'
+import {ErrorModel} from '../../error.model'
 
 @Component({
   selector: 'app-forgotpassword',
@@ -15,22 +16,23 @@ export class ForgotpasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   model: PasswordModel = new PasswordModel();
+  error: ErrorModel = new ErrorModel();
 
   async mailSend(mail: string)
   {
     this.model.personEmail = mail;
-
     try{
-      debugger;
       let response = await this._authService.mailsendAsync(this.model);
-      if(response['message']=='Başarılı')
+      this.error.error=response['error'];
+      this.error.message= response['message'];
+      if(  this.error.message=='Başarılı')
       {
         await this.router.navigateByUrl('/user-pages/newpassword')
       }
-      console.log(response);
     }catch(e)
     {
-      console.log(e);
+      this.error.error=true;
+      this.error.message= '* Bir Problem Oluştu !';
     }
   }
 }
