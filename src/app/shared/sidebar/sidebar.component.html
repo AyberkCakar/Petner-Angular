@@ -18,6 +18,12 @@
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': advert.isActive }">
+      <a class="nav-link" routerLink="/advert" routerLinkActive #advert="routerLinkActive">
+        <span class="menu-title">Advert</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
 
   </ul>
 </nav>
