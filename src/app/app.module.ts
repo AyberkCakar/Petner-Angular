@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { AdvertComponent } from './advert/advert.component';
+import { AddAdvertComponent } from './add-advert/add-advert.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AdvertComponent } from './advert/advert.component';
     SpinnerComponent,
     ContentAnimateDirective,
     AdvertComponent,
+    AddAdvertComponent,
   ],
   imports: [
     BrowserModule,
