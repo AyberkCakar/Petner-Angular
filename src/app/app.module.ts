@@ -17,6 +17,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { AdvertComponent } from './advert/advert.component';
 import { AddAdvertComponent } from './add-advert/add-advert.component';
+import { UpdateAdvertComponent } from './update-advert/update-advert.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddAdvertComponent } from './add-advert/add-advert.component';
     ContentAnimateDirective,
     AdvertComponent,
     AddAdvertComponent,
+    UpdateAdvertComponent,
   ],
   imports: [
     BrowserModule,
