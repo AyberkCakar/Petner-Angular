@@ -5,7 +5,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:;">Advert</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Advert List</li>
+        <li class="breadcrumb-item active" aria-current="page">My Advert List</li>
       </ol>
     </nav>
   </div>
@@ -15,29 +15,31 @@
     <div class="card">
         
       <div class="card-body">
-        <button type="button" id="add-advert" routerLink="/addAdvert" class="btn btn-gradient-success btn-rounded btn-fw">Add</button>
-        <h4 class="card-title">Striped Table</h4>
-        <p class="card-description">
-          Add class <code>.table-striped</code>
-        </p>
+        
+        <h4 class="card-title">My Advert List</h4>
+        
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
                 <th>
-                  User
+                  Animal Photo
                 </th>
                 <th>
-                  First name
+                  Advert Title
                 </th>
                 <th>
-                  Progress
+                  Animal Name
                 </th>
                 <th>
-                  Amount
+                  Advert Date
+                </th>
+                
+                <th>
+                  Advert Type
                 </th>
                 <th>
-                  Deadline
+                  Advert Status
                 </th>
                 <th>
                     Operation
@@ -46,205 +48,103 @@
               </tr>
             </thead>
             <tbody>
+              
               <tr>
                 <td class="py-1">
-                  <img src="assets/images/faces/face1.jpg" alt="image"/>
+                  <img src="assets/images/faces/face7.jpg" alt="image"/>
                 </td>
                 <td>
-                  Herman Beck
+                  Recep için sahip
                 </td>
                 <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                  Recep
                 </td>
                 <td>
-                  $ 77.99
+                  June 16, 2015
                 </td>
                 <td>
-                  May 15, 2015
+                  Sahiplendirme
                 </td>
                 <td>
-                    <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-email-open"></i>
+                  Bekliyor
+                </td>
+                <td>
+                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-danger btn-rounded btn-icon">
+                        <i class="mdi mdi-sync"></i>
                       </button>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-internet-explorer"></i>
-                      </button>
-                  </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="assets/images/faces/face2.jpg" alt="image"/>
-                </td>
-                <td>
-                  Messsy Adam
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $245.30
-                </td>
-                <td>
-                  July 1, 2015555555555555555555
-                </td>
-                <td>
-                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-gradient-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-email-open"></i>
-                      </button>
-                  
-                  
-                    <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-internet-explorer"></i>
-                      </button>
-                  
-
-                    </td>
-                
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="assets/images/faces/face3.jpg" alt="image"/>
-                </td>
-                <td>
-                  John Richards
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $138.00
-                </td>
-                <td>
-                  Apr 12, 2015
-                </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="assets/images/faces/face4.jpg" alt="image"/>
-                </td>
-                <td>
-                  Peter Meggik
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 77.99
-                </td>
-                <td>
-                  May 15, 2015
-                </td>
-                <td>
-                    <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-email-open"></i>
-                      </button>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-internet-explorer"></i>
-                      </button>
-                  </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="assets/images/faces/face5.jpg" alt="image"/>
-                </td>
-                <td>
-                  Edward
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 160.25
-                </td>
-                <td>
-                  May 03, 2015
-                </td>
-                <td>
-                    <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-email-open"></i>
-                      </button>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
+                      <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
                         <i class="mdi mdi-delete"></i>
                       </button>
                   </td>
-              </tr>
-              <tr>
-                <td class="py-1">
-                  <img src="assets/images/faces/face6.jpg" alt="image"/>
-                </td>
-                <td>
-                  John Doe
-                </td>
-                <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 123.21
-                </td>
-                <td>
-                  April 05, 2015
-                </td>
-                <td>
-                    <button type="button" class="btn btn-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-sync"></i>
-                      </button>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-internet-explorer"></i>
-                      </button>
-                  </td>
+                  
               </tr>
               <tr>
                 <td class="py-1">
                   <img src="assets/images/faces/face7.jpg" alt="image"/>
                 </td>
                 <td>
-                  Henry Tom
+                  Recep için sahip
                 </td>
                 <td>
-                  <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td>
-                  $ 150.00
+                  Recep
                 </td>
                 <td>
                   June 16, 2015
                 </td>
                 <td>
-                    <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon">
+                  Sahiplendirme
+                </td>
+                <td>
+                  Bekliyor
+                </td>
+                <td>
+                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-danger btn-rounded btn-icon">
                         <i class="mdi mdi-sync"></i>
                       </button>
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
+                      <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
                         <i class="mdi mdi-delete"></i>
                       </button>
                   </td>
+                  
+              </tr>
+              <tr>
+                <td class="py-1">
+                  <img src="assets/images/faces/face7.jpg" alt="image"/>
+                </td>
+                <td>
+                  Recep için sahip
+                </td>
+                <td>
+                  Recep
+                </td>
+                <td>
+                  June 16, 2015
+                </td>
+                <td>
+                  Sahiplendirme
+                </td>
+                <td>
+                  Bekliyor
+                </td>
+                <td>
+                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-danger btn-rounded btn-icon">
+                        <i class="mdi mdi-sync"></i>
+                      </button>
+                      <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
+                        <i class="mdi mdi-delete"></i>
+                      </button>
+                  </td>
+                  
               </tr>
             </tbody>
+            
           </table>
+          
         </div>
+        
+        <button type="button" id="add-advert" routerLink="/addAdvert" class="btn btn-inverse-success btn-fw">Add New Advert</button>
       </div>
+      
     </div>
+    
   </div>
