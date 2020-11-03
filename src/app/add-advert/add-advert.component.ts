@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ImageService,AdvertService } from '../../utils/services';
-import {AdvertModel} from './advert.model';
+import {AdvertModel,Animal,Address} from './advert.model';
 
 
 
@@ -18,6 +18,8 @@ class ImageSnippet {
 })
 export class AddAdvertComponent implements OnInit {
   advertModel: AdvertModel = new AdvertModel();
+  animalModel: Animal = new Animal();
+  adressModel: Address = new Address();
   selectedFile: ImageSnippet;
   imagePath: string;
 
@@ -50,16 +52,23 @@ export class AddAdvertComponent implements OnInit {
   {
     this.advertModel.advertisementTitle=title
     this.advertModel.advertisementExplanation=desc
-    this.advertModel.advertisementType=adverttype
-    this.advertModel.advertisementAnimal.age=age
-    this.advertModel.advertisementAnimal.animalPhotos=this.imagePath
-    this.advertModel.advertisementAnimal.gender=gender
-    this.advertModel.advertisementAnimal.genre=animaltype
-    this.advertModel.advertisementAddress.district=district
-    this.advertModel.advertisementAddress.fullAddress=adress
-    this.advertModel.advertisementAddress.province=city
-    this.advertModel.advertisementAddress.latitude=41.458
-    this.advertModel.advertisementAddress.longitude=34.7548
+    this.advertModel.advertisementType=+adverttype
+
+    this.animalModel.genre=animaltype
+    this.animalModel.gender=+gender
+    this.animalModel.animalPhotos=this.imagePath
+    this.animalModel.age=+age
+    this.advertModel.advertisementAnimal=this.animalModel
+
+    this.adressModel.district=district
+    this.adressModel.fullAddress=adress
+    this.adressModel.province=city
+    this.adressModel.latitude=41.458
+    this.adressModel.longitude=34.7548
+    this.advertModel.advertisementAddress=this.adressModel
+    
+
+    console.log(this.advertModel)
 
     try {
       const response= await this.AdvertService.addAsync(this.advertModel)
