@@ -1,7 +1,7 @@
 export class AdvertModel {
   advertisementTitle: string;
   advertisementExplanation: string;
-  advertisementType: string;
+  advertisementType: number;
   advertisementAnimal: Animal;
   advertisementAddress:Address;
 }
