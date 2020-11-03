@@ -14,18 +14,18 @@
       <div class="card-body">
         <h4 class="card-title">New Advert</h4>
 
-        <form class="forms-sample" enctype="multipart/form-data" >
+        <form class="forms-sample" >
           <div class="form-group">
             <label for="exampleInputName1">Advert Title</label>
-            <input type="text" class="form-control" id="exampleInputName1">
+            <input type="text" class="form-control" #title >
           </div>
           <div class="form-group">
             <label for="exampleTextarea1">Advert Description</label>
-            <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+            <textarea class="form-control" #desc  rows="4"></textarea>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect2">Advert Status</label>
-            <select class="form-control" id="exampleFormControlSelect2">
+            <select class="form-control" #status>
               <option>Bekliyor</option>
               <option>Tamamlandı</option>
               <option>Daha fazla gerekiyor</option>
@@ -33,7 +33,7 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect2">Advert Type</label>
-            <select class="form-control" id="exampleFormControlSelect2">
+            <select class="form-control" #adverttype id="exampleFormControlSelect2">
               <option>Beslenme Yardımı</option>
               <option>Sahiplendirme</option>
               <option>Aşılama</option>
@@ -53,35 +53,37 @@
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Animal Type</label>
-            <input type="text" class="form-control" id="exampleInputName1">
+            <input type="text" class="form-control" #animaltype>
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Animal Age</label>
-            <input type="numeric" class="form-control" id="exampleInputName1">
+            <input type="numeric" class="form-control" #age>
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Animal Gender</label>
-            <input type="text" class="form-control" id="exampleInputName1">
+            <input type="text" class="form-control" #gender>
           </div>
           <div class="form-group">
             <label for="exampleInputName1">City</label>
-            <input type="text" class="form-control" id="exampleInputName1">
+            <input type="text" class="form-control" #city>
           </div>
           <div class="form-group">
             <label for="exampleInputName1">District</label>
-            <input type="numeric" class="form-control" id="exampleInputName1">
+            <input type="numeric" class="form-control" #district>
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Street</label>
-            <input type="text" class="form-control" id="exampleInputName1">
+            <input type="text" class="form-control" #street id="exampleInputName1">
           </div>
           <div class="form-group">
             <label for="exampleTextarea1">Address</label>
-            <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+            <textarea class="form-control" #adress id="exampleTextarea1" rows="4"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-gradient-primary mr-2">Add</button>
-          <button class="btn btn-light">Cancel</button>
+          <button type="submit" (click)="save(title.value,desc.value,status.value,adverttype.value,animaltype.value,age.value,gender.value,city.value,district.value,
+                                              street.value,adress.value)"
+                  class="btn btn-gradient-primary mr-2">Add</button>
+          <button routerLink="/advert" class="btn btn-light">Cancel</button>
         </form>
       </div>
     </div>
