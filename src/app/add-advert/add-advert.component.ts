@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ImageService,AdvertService } from '../../utils/services';
 import {AdvertModel,Animal,Address} from './advert.model';
 
-
-
 class ImageSnippet {
   pending: boolean = false;
   status: string = 'init';
-
   constructor(public src: string, public file: File) {}
 }
 
@@ -21,8 +18,7 @@ export class AddAdvertComponent implements OnInit {
   animalModel: Animal = new Animal();
   adressModel: Address = new Address();
   selectedFile: ImageSnippet;
-  imagePath: string;
-
+  image:string;
   constructor(private imageService: ImageService,private AdvertService: AdvertService) { }
 
    handleFileInput(imageInput: any) {
@@ -34,12 +30,11 @@ export class AddAdvertComponent implements OnInit {
     });
     reader.readAsDataURL(file);
   }
-
   async imageupload(selectfile: ImageSnippet)
   {
     try {
       const response = await this.imageService.uploadImageAsync(selectfile.file);
-      this.imagePath = response['data'];
+      this.image = response['data'];
       console.log(response);
     }
     catch (error) {
@@ -47,34 +42,29 @@ export class AddAdvertComponent implements OnInit {
     }
   }
 
-  async save(title: string ,desc: string , adverttype: number, animaltype: string, age: number , gender: number
+  async save(title: string ,desc: string , adverttype: number, animaltype: string, age: number , gender: string
              ,city:string ,district: string, street: string, adress: string)
   {
-    this.advertModel.advertisementTitle=title
-    this.advertModel.advertisementExplanation=desc
-    this.advertModel.advertisementType=+adverttype
+    this.advertModel.advertisementTitle=title;
+    this.advertModel.advertisementExplanation=desc;
+    this.advertModel.advertisementType=+adverttype;
 
-    this.animalModel.genre=animaltype
-    this.animalModel.gender=+gender
-    this.animalModel.animalPhotos=this.imagePath
-    this.animalModel.age=+age
-    this.advertModel.advertisementAnimal=this.animalModel
+    this.animalModel.genre=animaltype;
+    this.animalModel.gender= gender;
+    this.animalModel.animalPhotos=[this.image,''];
+    this.animalModel.age=+age;
+    this.advertModel.advertisementAnimal=this.animalModel;
 
-    this.adressModel.district=district
-    this.adressModel.fullAddress=adress
-    this.adressModel.province=city
-    this.adressModel.latitude=41.458
-    this.adressModel.longitude=34.7548
-    this.advertModel.advertisementAddress=this.adressModel
-    
-
-    console.log(this.advertModel)
+    this.adressModel.district=district;
+    this.adressModel.fullAddress=adress;
+    this.adressModel.province=city;
+    this.adressModel.latitude=41.458;
+    this.adressModel.longitude=34.7548;
+    this.advertModel.advertisementAddress=this.adressModel;
 
     try {
-      const response= await this.AdvertService.addAsync(this.advertModel)
-      console.log(response)
-      
-    } 
+      await this.AdvertService.addAsync(this.advertModel);
+    }
     catch (error) {
       console.log(error)
     }

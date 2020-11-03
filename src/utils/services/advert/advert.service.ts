@@ -10,7 +10,6 @@ export class AdvertService {
   }
 
   async addAsync(values) {
-    
     return await this._apiFetchService.requestAsync('POST','advertisement/add',values,true);
   }
 }

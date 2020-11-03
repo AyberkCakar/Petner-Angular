@@ -9,8 +9,8 @@ export class AdvertModel {
 export class Animal {
   genre: string;
   age: number;
-  gender: number;
-  animalPhotos: string
+  gender: string;
+  animalPhotos: Array<string>;
 }
 
 export class Address {
