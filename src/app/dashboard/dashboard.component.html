@@ -18,7 +18,7 @@
 <div class="container">
   <div class="row">
     <div style="margin-top: 20px" class="col-lg-4 justify-content-center" *ngFor="let data of model['data']">
-      <igx-card >
+      <igx-card (click)="getData(data.advertisementID) ">
         <igx-card-media height="196px">
           <img style="width: 100%;" src="https://petner-cdn.yusufozgul.com/upload-008770818.png">
         </igx-card-media>

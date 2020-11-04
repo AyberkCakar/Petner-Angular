@@ -22,6 +22,15 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  date: Date = new Date();
+  
+  async getData(data:string)
+  {
+    try {
+      const response =  await this.dashboardService.getAdvertAsync(data);
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }  
+  }
 
 }
