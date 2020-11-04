@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.1.0...v1.2.0) (2020-11-04)
+
+
+### Features
+
+* added advert add api connection ([6a22e7b](https://github.com/AyberkCakar/Petner-Angular/commit/6a22e7bc442e5b1ad528da71af44f034b2196f17))
+* added advert add page ([d79e78a](https://github.com/AyberkCakar/Petner-Angular/commit/d79e78ab15db09d8e38c28f4928447f56016f28b))
+* added advert detail api connection ([e2a8025](https://github.com/AyberkCakar/Petner-Angular/commit/e2a80256d1375deb35d4b66cee441ce58f8deee5))
+* added advert detail page ([127b81e](https://github.com/AyberkCakar/Petner-Angular/commit/127b81e128ea2ce48012c3ca6e26a2cfc924495d))
+* added advert image upload ([c724b10](https://github.com/AyberkCakar/Petner-Angular/commit/c724b10765e3a7250f65f2dc460d82174dd54d80))
+* added advert informations ([59cce08](https://github.com/AyberkCakar/Petner-Angular/commit/59cce080c924bd9109b55bcf8a8a0bba00c58062))
+* added advert list screen ([f1e9a32](https://github.com/AyberkCakar/Petner-Angular/commit/f1e9a32f74a24f1080dc98ef8f116af3b7e1293e))
+* added dashboard advert list api connection ([bc76446](https://github.com/AyberkCakar/Petner-Angular/commit/bc764461424e4d6b97210916375538329ebfa6b2))
+* added dashboard advert list card design ([7f0fd23](https://github.com/AyberkCakar/Petner-Angular/commit/7f0fd233fa40a1bb1b8c666a814681e5a32e297c))
+* added update advert page ([43e0a52](https://github.com/AyberkCakar/Petner-Angular/commit/43e0a5266a3d08c00e707b721718006a94ed5abe))
+* advert model and save method ([50f88cf](https://github.com/AyberkCakar/Petner-Angular/commit/50f88cf43b6db627e0c5dcffe1dfdc9a0ac2af68))
+
+
+### Bug Fixes
+
+* fix add advert component ([896d062](https://github.com/AyberkCakar/Petner-Angular/commit/896d062c61e278e590f5b2675690d1bce59c9f11))
+* fix advert add bug ([540d9c1](https://github.com/AyberkCakar/Petner-Angular/commit/540d9c15e428b22ae5edc20b71da650826c0175f))
+* fix dashboard list data ([31912c3](https://github.com/AyberkCakar/Petner-Angular/commit/31912c3aaa8677ce17c46f5f4995f716def809a5))
+
 ## [1.1.0](https://github.com/AyberkCakar/Petner-Angular/compare/v0.0.0...v1.1.0) (2020-10-27)
 
 
