@@ -19,6 +19,8 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
 import { AdvertComponent } from './advert/advert.component';
 import { AddAdvertComponent } from './add-advert/add-advert.component';
 import { UpdateAdvertComponent } from './update-advert/update-advert.component';
+import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { UpdateAdvertComponent } from './update-advert/update-advert.component';
     AdvertComponent,
     AddAdvertComponent,
     UpdateAdvertComponent,
+    AdvertDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { UpdateAdvertComponent } from './update-advert/update-advert.component';
     ReactiveFormsModule,
     ChartsModule,
     HttpClientModule,
-    IgxCardModule
+    IgxCardModule,
+    NgImageSliderModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
