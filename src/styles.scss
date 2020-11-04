@@ -51,8 +51,8 @@
 @import "./assets/scss/components/bootstrap-progress";
 @import "./assets/scss/components/bootstrap-alerts";
 @import "./assets/scss/components/tabs";
-@import "./assets/scss/components/dropdowns"; 
-@import "./assets/scss/components/date-picker"; 
+@import "./assets/scss/components/dropdowns";
+@import "./assets/scss/components/date-picker";
 @import "./assets/scss/components/pagination";
 @import "./assets/scss/components/portfolio";
 @import "./assets/scss/components/todo-list";
@@ -61,3 +61,13 @@
 
 /* === Layout === */
 @import "./assets/scss/layout";
+
+
+@import '~igniteui-angular/lib/core/styles/themes/index';
+@include igx-core();
+@include igx-theme($default-palette, $legacy-support: true);
+
+:root {
+  @include css-vars-from-palette($default-palette);
+}
+

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {  HttpClientModule } from '@angular/common/http';
+import { IgxCardModule } from 'igniteui-angular';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,7 +41,8 @@ import { UpdateAdvertComponent } from './update-advert/update-advert.component';
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    IgxCardModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
