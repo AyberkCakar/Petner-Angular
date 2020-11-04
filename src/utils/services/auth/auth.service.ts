@@ -13,34 +13,31 @@ export class AuthService {
 
   async login(user) {
     try{
-      var response = await this._apiFetchService.requestAsync(
+      const response: any = await this._apiFetchService.requestAsync(
         'POST',
         'login',
-        user); 
-    //this._cookie.set('token',response.data)
-    console.log(response);
-
-    return response;
+        user
+      );
+      localStorage.setItem('token', response.data.token);
+      return response;
     }catch(error)
     {
       console.log(error);
-
-    }      
-      
+    }
   }
 
   async signupAsync(values)
   {
-    return await this._apiFetchService.requestAsync('POST','signup',values); 
+    return await this._apiFetchService.requestAsync('POST','signup',values);
   }
   async mailsendAsync(values)
   {
-    return await this._apiFetchService.requestAsync('POST','resetPassword',values); 
+    return await this._apiFetchService.requestAsync('POST','resetPassword',values);
   }
 
   async newpasswordAsync(values)
   {
-    return await this._apiFetchService.requestAsync('POST','newPassword',values); 
+    return await this._apiFetchService.requestAsync('POST','newPassword',values);
   }
 
 }

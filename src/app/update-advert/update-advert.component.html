@@ -1,0 +1,86 @@
+<div class="page-header">
+  <h3 class="page-title">
+    Advert
+  </h3>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/advert">Advert</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Update Advert</li>
+    </ol>
+  </nav>
+</div>
+<div class="col-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Update Advert</h4>
+    
+      <form class="forms-sample">
+        <div class="form-group">
+          <label for="exampleInputName1">Advert Title</label>
+          <input type="text" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea1">Advert Description</label>
+          <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Advert Status</label>
+          <select class="form-control" id="exampleFormControlSelect2">
+            <option>Bekliyor</option>
+            <option>Tamamlandı</option>
+            <option>Daha fazla gerekiyor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Advert Type</label>
+          <select class="form-control" id="exampleFormControlSelect2">
+            <option>Beslenme Yardımı</option>
+            <option>Sahiplendirme</option>
+            <option>Aşılama</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Animal Photo</label>
+          <input type="file" name="img[]" class="file-upload-default">
+          <div class="input-group col-xs-12">
+            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+            <span class="input-group-append">
+              <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Type</label>
+          <input type="text" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Age</label>
+          <input type="numeric" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Gender</label>
+          <input type="text" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">City</label>
+          <input type="text" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">District</label>
+          <input type="numeric" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Street</label>
+          <input type="text" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea1">Address</label>
+          <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

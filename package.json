@@ -27,7 +27,9 @@
     "chart.js": "^2.9.3",
     "compass-mixins": "^0.12.10",
     "express": "^4.17.1",
+    "igniteui-angular": "^10.2.2",
     "jquery": "^3.5.1",
+    "ng-image-slider": "^2.6.4",
     "ng2-charts": "^2.4.2",
     "node-sass": "^4.14.1",
     "path": "^0.12.7",
@@ -36,7 +38,7 @@
     "zone.js": "~0.11.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1001.7",
+    "@angular-devkit/build-angular": "^0.1002.0",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
     "@angular/language-service": "~10.1.6",

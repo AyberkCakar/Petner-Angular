@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardModel } from './dashboard.model';
+import {DashboardService} from '../../utils/services'
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  model: Array<DashboardModel>
 
-  ngOnInit() {
+  constructor(private dashboardService: DashboardService) { }
+
+  async ngOnInit() {
+    try {
+      this.model = <Array<DashboardModel>> await this.dashboardService.listAsync()
+      console.log(this.model)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  date: Date = new Date();
+  
+  async getData(data:string)
+  {
+    try {
+      const response =  await this.dashboardService.getAdvertAsync(data);
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }  
+  }
 
 }

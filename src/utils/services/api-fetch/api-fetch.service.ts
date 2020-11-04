@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
+
 export class ApiFetchService {
   constructor(private _http: HttpClient) {}
   requestAsync(
@@ -19,7 +20,7 @@ export class ApiFetchService {
       if (data != null) Object.assign(config, { body: data });
       if (getToken)
         Object.assign(config, {
-          headers: ({ token: localStorage.getItem('token')}),
+          headers: ({'Content-Type': 'application/json', token: localStorage.getItem('token')}),
         });
       this._http
         .request<any>(method, `${environment.apiUrl}${path}`, config)

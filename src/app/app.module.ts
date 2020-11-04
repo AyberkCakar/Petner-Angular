@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {  HttpClientModule } from '@angular/common/http';
+import { IgxCardModule } from 'igniteui-angular';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
+import { AdvertComponent } from './advert/advert.component';
+import { AddAdvertComponent } from './add-advert/add-advert.component';
+import { UpdateAdvertComponent } from './update-advert/update-advert.component';
+import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -25,6 +31,10 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
     DashboardComponent,
     SpinnerComponent,
     ContentAnimateDirective,
+    AdvertComponent,
+    AddAdvertComponent,
+    UpdateAdvertComponent,
+    AdvertDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,9 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    IgxCardModule,
+    NgImageSliderModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
