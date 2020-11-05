@@ -16,8 +16,30 @@ export class DashboardComponent implements OnInit {
   async ngOnInit() {
     try {
       this.model = <Array<DashboardModel>> await this.dashboardService.listAsync()
-      console.log(this.model)
-    } catch (error) {
+      
+      let count=0;
+      let titles=[]
+      this.model.data.forEach(function (value) {
+        count++;
+        
+        if(value["advertisementTitle"].length <25){
+          titles.push(value["advertisementTitle"])
+        }
+        
+        else{
+          titles.push(value["advertisementTitle"].substring(0, 22)+"...")
+        }
+        console.log(value["advertisementTitle"].length);
+        
+      });
+
+      for (let i = 0; i < count; i++) {
+       this.model.data[i]["advertisementTitle"]=titles[i];
+      }
+      
+      console.log(this.model) 
+    }  
+    catch (error) {
       console.log(error)
     }
   }
