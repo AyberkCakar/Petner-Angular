@@ -18,14 +18,14 @@
 <div class="container">
   <div class="row">
     <div style="margin-top: 20px" class="col-lg-4 justify-content-center" *ngFor="let data of model['data']">
-      <igx-card (click)="getData(data.advertisementID) ">
+      <igx-card routerLink="/detailAdvert/{{data.advertisementID}}" >
         <igx-card-media height="196px">
           <img style="width: 100%;" src="https://petner-cdn.yusufozgul.com/upload-008770818.png">
         </igx-card-media>
 
         <igx-card-header>
           <h3 igxCardHeaderTitle>{{data.advertisementTitle}}</h3>
-          
+
         </igx-card-header>
 
         <igx-card-content>
@@ -38,13 +38,13 @@
             <span *ngSwitchCase="2"><b>Advert Type</b>: deneme 3</span>
           </span>
           <br>
-          <br> 
+          <br>
           <span><b>Province</b>: {{data.advertisementAddress.province}}</span>
         </igx-card-content>
 
         <igx-card-actions>
             <span style="float:right;" class="badge badge-pill badge-primary" > <b>{{data.advertisementAnimal.genre}}</b></span>
-            
+
           <span [ngSwitch]="data.status">
             <span style="float:right;" class="badge badge-pill badge-success"*ngSwitchCase="0"> deneme 1</span>
             <span style="justify-content: right;" class="badge badge-pill badge-info" *ngSwitchCase="1"> deneme 2</span>

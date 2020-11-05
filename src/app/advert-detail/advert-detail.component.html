@@ -12,68 +12,47 @@
   <div class="card">
     <div class="card-body " >
       <h2 class="card-title">
-        Selam bu kedicik için yeni bir sahip arıyoruz. 
+        {{response.data.advertisementTitle}}
       </h2>
-
-
-
-
-    
-
-
-
-
-
 
       <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-          
             <ngb-tabset type="pills" class="pills-success">
               <ngb-tab title="Gallery">
                 <ng-template ngbTabContent>
-                    
-                        <ng-image-slider [images]="imageObject" #nav></ng-image-slider>   
-                        
-                  
-                
+                        <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
                 </ng-template>
               </ngb-tab>
-
-
-
-
 
               <ngb-tab title="Advert Description">
                 <ng-template ngbTabContent>
-                    Selam bu kedicik için yeni bir sahip arıyoruz. Uzun zamandır bizimle ve ismine duyarlı. Ayrıca oldukça uslu da :)
+                  {{response.data.advertisementExplanation}}
                 </ng-template>
               </ngb-tab>
-
-
 
 
               <ngb-tab title="Animal Informations">
                 <ng-template ngbTabContent>
-                  <p><b>Age :</b>1</p>
-                  <p><b>Genre :</b>Cat</p>
-                  <p><b>Gender :</b>Male</p>
+                  <p><b>Age :</b>{{response.data.advertisementAnimal.age}} </p>
+                  <p><b>Genre :</b>{{response.data.advertisementAnimal.genre}}</p>
+                  <p><b>Gender :</b>{{response.data.advertisementAnimal.gender}}</p>
                 </ng-template>
               </ngb-tab>
 
               <ngb-tab title="Owner Informations">
                 <ng-template ngbTabContent>
-                    <p><b>Owner Name :</b>1</p>
-                    <p><b>Owner E-Mail :</b>ismailsefa.akdnz@gmail.com</p>
-                    <p><b>Owner Phone :</b>05397722431</p>
+                    <p><b>Owner Name :</b>{{response.data.ownerUser.personName}} {{response.data.ownerUser.personLastName}}</p>
+                    <p><b>Owner E-Mail :</b>{{response.data.ownerUser.personEmail}}</p>
+                    <p><b>Owner Phone :</b>{{response.data.ownerUser.personPhone}}</p>
                 </ng-template>
               </ngb-tab>
 
               <ngb-tab title="Adress Informations">
                 <ng-template ngbTabContent>
-                    <p><b>Province :</b>İzmir</p>
-                    <p><b>District :</b>Bornova</p>
-                    <p><b>FullAddress :</b>1389 sokak no 145</p>
+                    <p><b>Province :</b>{{response.data.advertisementAddress.province}}</p>
+                    <p><b>District :</b>{{response.data.advertisementAddress.district}}</p>
+                    <p><b>FullAddress :</b>{{response.data.advertisementAddress.fullAddress}}</p>
                 </ng-template>
               </ngb-tab>
 
@@ -90,6 +69,6 @@
 
 
 
-      
+
     </div>
 </div>

@@ -12,4 +12,10 @@ export class AdvertService {
   async addAsync(values) {
     return await this._apiFetchService.requestAsync('POST','advertisement/add',values,true);
   }
+
+  async getAdvertAsync(values){
+    const path = 'advertisement/get?id='+values;
+    return await this._apiFetchService.requestAsync('GET',path,null,true);
+
+  }
 }

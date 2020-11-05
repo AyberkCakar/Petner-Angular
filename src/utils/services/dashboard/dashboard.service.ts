@@ -13,9 +13,5 @@ export class DashboardService {
     return await this._apiFetchService.requestAsync('GET','advertisement/get');
   }
 
-  async getAdvertAsync(values){
-    const path = 'advertisement/get/'+values;
-    return await this._apiFetchService.requestAsync('GET',path,null,true);
 
-  }
 }
