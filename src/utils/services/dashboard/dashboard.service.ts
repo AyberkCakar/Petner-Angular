@@ -13,5 +13,4 @@ export class DashboardService {
     return await this._apiFetchService.requestAsync('GET','advertisement/get');
   }
 
-
 }
