@@ -33,6 +33,8 @@ export class UpdateAdvertComponent implements OnInit {
 
   async onUpdate(title: string,description: string,gender: string,genre: string){
     try {
+      this.model.advertisementID = this._router.snapshot.paramMap.get('id');
+
       let response = <DashboardModel>await this.advertService.updateAsync(this.model,this.model.advertisementID);
       console.log(response)
       this.showNotification( 'success', response['message'] );

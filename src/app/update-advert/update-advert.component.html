@@ -52,7 +52,7 @@
           <textarea class="form-control"  value={{model.data.advertisementAddress.fullAddress}} rows="4"></textarea>
         </div>
         <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onUpdate(title.value,description.value,gender.value,genre.value)">Update</button>
-        <button class="btn btn-light">Cancel</button>
+        <button routerLink="/advert" class="btn btn-light">Cancel</button>
       </form>
     </div>
   </div>

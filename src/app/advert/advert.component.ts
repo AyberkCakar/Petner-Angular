@@ -32,7 +32,7 @@ export class AdvertComponent implements OnInit {
     }
     openSmallModal( smallModalContent , ID: string) {
       this.ID = ID;
-      this.modalService.open( smallModalContent, { size : 'sm' } );
+      this.modalService.open( smallModalContent, { size : 'md' } );
     }
 
     async onDelete()

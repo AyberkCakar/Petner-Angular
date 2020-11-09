@@ -19,7 +19,7 @@
     <div style="margin-top: 20px" class="col-lg-4 justify-content-center" *ngFor="let data of model['data']">
       <igx-card routerLink="/detailAdvert/{{data.advertisementID}}">
         <igx-card-media height="196px">
-          <img style="width: 100%;" src="https://petner-cdn.yusufozgul.com/upload-008770818.png">
+          <img style="width: 100%;" src={{data.advertisementAnimal.animalPhoto}}>
         </igx-card-media>
         <igx-card-header>
           <h3 igxCardHeaderTitle>{{data.advertisementTitle}}</h3>

@@ -12,7 +12,7 @@
     <div class="card-body ">
       <h2 style="text-align: center;" class="card-title">
         {{response.data.advertisementTitle}}</h2>
-      <p style="text-align: left;">{{response.data.advEntryDate}}</p>
+      <p style="text-align: left;">{{response.data.advEntryDate | date:'medium'}}</p>
       <span [ngSwitch]="response.data.status">
         <span style="float:right;" class="badge badge-pill badge-success" *ngSwitchCase="0">Waiting</span>
         <span style="justify-content: right;" class="badge badge-pill badge-info" *ngSwitchCase="1">Completing</span>

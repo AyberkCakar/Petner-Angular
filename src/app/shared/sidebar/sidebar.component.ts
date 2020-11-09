@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   public uiBasicCollapsed = false;
   public samplePagesCollapsed = false;
-  
+  data;
   constructor() { }
 
   ngOnInit() {
+
+    this.data= localStorage.getItem('currentUser')
     const body = document.querySelector('body');
 
     // add class 'hover-open' to sidebar navitem while hover in sidebar-icon-only menu

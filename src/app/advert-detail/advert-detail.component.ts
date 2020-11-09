@@ -33,14 +33,11 @@ export class AdvertDetailComponent implements OnInit {
       this.response = await this.advertService.findAdvertAsync(this.id);
       console.log(this.response)
       this.response['data'].advertisementAnimal.animalPhotos.forEach(await function (value) {
-        console.log(value)
         model.image = value;
         model.thumbImage = value;
         image.push(model);
       });
-      
       this.imageObject = image;
-      
     } catch (error) {
       this.showNotification( 'error', error.message );      
     }
