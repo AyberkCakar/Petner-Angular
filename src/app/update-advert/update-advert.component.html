@@ -13,73 +13,46 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Update Advert</h4>
-    
       <form class="forms-sample">
         <div class="form-group">
           <label for="exampleInputName1">Advert Title</label>
-          <input type="text" class="form-control" id="exampleInputName1">
+          <input type="text" class="form-control" #title value={{model.data.advertisementTitle}}>
+          
         </div>
         <div class="form-group">
           <label for="exampleTextarea1">Advert Description</label>
-          <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect2">Advert Status</label>
-          <select class="form-control" id="exampleFormControlSelect2">
-            <option>Bekliyor</option>
-            <option>Tamamlandı</option>
-            <option>Daha fazla gerekiyor</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect2">Advert Type</label>
-          <select class="form-control" id="exampleFormControlSelect2">
-            <option>Beslenme Yardımı</option>
-            <option>Sahiplendirme</option>
-            <option>Aşılama</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Animal Photo</label>
-          <input type="file" name="img[]" class="file-upload-default">
-          <div class="input-group col-xs-12">
-            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-            <span class="input-group-append">
-              <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-            </span>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputName1">Animal Type</label>
-          <input type="text" class="form-control" id="exampleInputName1">
+          <textarea class="form-control" #description value={{model.data.advertisementExplanation}} id="exampleTextarea1" rows="4"></textarea>
         </div>
         <div class="form-group">
           <label for="exampleInputName1">Animal Age</label>
-          <input type="numeric" class="form-control" id="exampleInputName1">
+          <input type="numeric" class="form-control"  value={{model.data.advertisementAnimal.age}}>
         </div>
         <div class="form-group">
           <label for="exampleInputName1">Animal Gender</label>
-          <input type="text" class="form-control" id="exampleInputName1">
+          <select class="form-control" #gender  >
+            <option [selected]="model.data.advertisementAnimal.gender=='Erkek'">Erkek</option>
+            <option [selected]="model.data.advertisementAnimal.gender=='Dişi'">Dişi</option>
+            <option [selected]="model.data.advertisementAnimal.gender=='Bilinmiyor'">Bilinmiyor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Genre</label>
+          <input type="text" class="form-control" #genre value={{model.data.advertisementAnimal.genre}}>
         </div>
         <div class="form-group">
           <label for="exampleInputName1">City</label>
-          <input type="text" class="form-control" id="exampleInputName1">
+          <input type="text" class="form-control"  value={{model.data.advertisementAddress.province}}>
         </div>
         <div class="form-group">
           <label for="exampleInputName1">District</label>
-          <input type="numeric" class="form-control" id="exampleInputName1">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputName1">Street</label>
-          <input type="text" class="form-control" id="exampleInputName1">
+          <input type="numeric" class="form-control"  value={{model.data.advertisementAddress.district}}>
         </div>
         <div class="form-group">
           <label for="exampleTextarea1">Address</label>
-          <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+          <textarea class="form-control"  value={{model.data.advertisementAddress.fullAddress}} rows="4"></textarea>
         </div>
-        
-        <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
-        <button class="btn btn-light">Cancel</button>
+        <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onUpdate(title.value,description.value,gender.value,genre.value)">Update</button>
+        <button routerLink="/advert" class="btn btn-light">Cancel</button>
       </form>
     </div>
   </div>

@@ -23,6 +23,7 @@
     "@angular/router": "~10.1.6",
     "@mdi/font": "^5.7.55",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+    "angular-notifier": "^6.0.1",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.3",
     "compass-mixins": "^0.12.10",

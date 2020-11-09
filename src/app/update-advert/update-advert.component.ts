@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DashboardModel } from '../Dashboard/dashboard.model';
+import {NotifierService} from 'angular-notifier';
+import { AdvertService } from 'src/utils/services';
 
 @Component({
   selector: 'app-update-advert',
@@ -6,10 +10,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-advert.component.scss']
 })
 export class UpdateAdvertComponent implements OnInit {
+  model: DashboardModel = new DashboardModel();
+  constructor(
+    private _router: ActivatedRoute,
+    private notifier: NotifierService,
+    private advertService: AdvertService
+  ) { }
 
-  constructor() { }
+  public showNotification( type: string, message: string ): void {
+    this.notifier.notify( type, message );
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    try {
+      this.model.advertisementID = this._router.snapshot.paramMap.get('id');
+      this.model = <DashboardModel>await this.advertService.findAdvertAsync(this.model.advertisementID);
+      console.log(this.model)
+    } catch (error) {
+      this.showNotification( 'error', error.message );      
+    }
+  }
+
+  async onUpdate(title: string,description: string,gender: string,genre: string){
+    try {
+      this.model.advertisementID = this._router.snapshot.paramMap.get('id');
+
+      let response = <DashboardModel>await this.advertService.updateAsync(this.model,this.model.advertisementID);
+      console.log(response)
+      this.showNotification( 'success', response['message'] );
+    } catch (error) {
+      this.showNotification( 'error', error.message );      
+    }
   }
 
 }

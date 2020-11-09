@@ -1,151 +1,86 @@
 <div class="page-header">
-    <h3 class="page-title">
-      Advert
-    </h3>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="javascript:;">Advert</a></li>
-        <li class="breadcrumb-item active" aria-current="page">My Advert List</li>
-      </ol>
-    </nav>
-  </div>
- 
+  <h3 class="page-title">
+    Advert
+  </h3>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="javascript:;">Advert</a></li>
+      <li class="breadcrumb-item active" aria-current="page">My Advert List</li>
+    </ol>
+  </nav>
+</div>
+
 <div class="col-lg-12 grid-margin stretch-card">
-    
-    <div class="card">
-        
-      <div class="card-body">
-        
-        <h4 class="card-title">My Advert List</h4>
-        
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>
-                  Animal Photo
-                </th>
-                <th>
-                  Advert Title
-                </th>
-                <th>
-                  Animal Name
-                </th>
-                <th>
-                  Advert Creation Date
-                </th>
-                
-                <th>
-                  Advert Type
-                </th>
-                <th>
-                  Advert Status
-                </th>
-                <th>
-                    Operation
-                  </th>
-                  
-              </tr>
-            </thead>
-            <tbody>
-               
-              
-              <tr routerLink="/detailAdvert/1">
-                <td class="py-1">
-                  <img src="assets/images/faces/face7.jpg" alt="image"/>
-                </td>
-                <td>
-                  Recep için sahip
-                </td>
-                <td>
-                  Recep
-                </td>
-                <td>
-                  June 16, 2015
-                </td>
-                <td>
-                  Sahiplendirme
-                </td>
-                <td>
-                  Bekliyor
-                </td>
-                <td>
-                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-sync"></i>
-                      </button>
-                      <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-delete"></i>
-                      </button>
-                  </td>
-                  
-              </tr>
-              <tr routerLink="/detailAdvert/1">
-                <td class="py-1">
-                  <img src="assets/images/faces/face7.jpg" alt="image"/>
-                </td>
-                <td>
-                  Recep için sahip
-                </td>
-                <td>
-                  Recep
-                </td>
-                <td>
-                  June 16, 2015
-                </td>
-                <td>
-                  Sahiplendirme
-                </td>
-                <td>
-                  Bekliyor
-                </td>
-                <td>
-                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-sync"></i>
-                      </button>
-                      <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-delete"></i>
-                      </button>
-                  </td>
-                  
-              </tr>
-              <tr routerLink="/detailAdvert/1">
-                <td class="py-1">
-                  <img src="assets/images/faces/face7.jpg" alt="image"/>
-                </td>
-                <td>
-                  Recep için sahip
-                </td>
-                <td>
-                  Recep
-                </td>
-                <td>
-                  June 16, 2015
-                </td>
-                <td>
-                  Sahiplendirme
-                </td>
-                <td>
-                  Bekliyor
-                </td>
-                <td>
-                    <button type="button"  routerLink="/updateAdvert/1" class="btn btn-danger btn-rounded btn-icon">
-                        <i class="mdi mdi-sync"></i>
-                      </button>
-                      <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon">
-                        <i class="mdi mdi-delete"></i>
-                      </button>
-                  </td>
-                  
-              </tr>
-            </tbody>
-            
-          </table>
-          
-        </div>
-        
-        <button type="button" id="add-advert" routerLink="/addAdvert" class="btn btn-inverse-success btn-fw">Add New Advert</button>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">My Advert List</h4>
+
+      <button type="button" id="add-advert" routerLink="/addAdvert" class="btn btn-inverse-success btn-fw">Add New
+        Advert</button>
+        <br>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th> Animal Photo</th>
+              <th> Advert Title </th>
+              <th>  Animal Name </th>
+              <th>  Advert Creation Date  </th>
+              <th>  Advert Type </th>
+              <th> Advert Status </th>
+              <th>  Operation </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let advert of model['data']">
+              <td class="py-1" routerLink="/detailAdvert/{{advert.advertisementID}}">
+                <img src={{advert.advertisementAnimal.animalPhoto}} alt="image" />
+              </td>
+              <td routerLink="/detailAdvert/{{advert.advertisementID}}"> {{advert.advertisementTitle}} </td>
+              <td routerLink="/detailAdvert/{{advert.advertisementID}}"> {{advert.advertisementAnimal.genre}}</td>
+              <td>{{advert.date | date:'mediumDate'}} </td>
+              <td ><span [ngSwitch]="advert.advertisementType">
+                <span *ngSwitchCase="0">Food Help</span>
+                <span *ngSwitchCase="1">Ownership</span>
+                <span *ngSwitchCase="2">Vaccination</span>
+              </span> </td>
+              <td><span [ngSwitch]="advert.status">
+                <span *ngSwitchCase="0"> Waiting </span>
+                <span *ngSwitchCase="1"> Completing</span>
+                <span *ngSwitchCase="2"> Needs More</span>
+              </span></td>
+              <td>
+                <button type="button" routerLink="/updateAdvert/{{advert.advertisementID}}" class="btn btn-danger btn-rounded btn-icon">
+                  <i class="mdi mdi-sync"></i>
+                </button>
+                <button type="button" (click)="openSmallModal(smallModalContent,advert.advertisementID)" class="btn btn-gradient-dark btn-rounded btn-icon">
+                  <i class="mdi mdi-delete"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
     </div>
-    
   </div>
+</div>
+
+
+<ng-template #smallModalContent let-modal class="modal fade" aria-labelledby="exampleModalLabel-3">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel-3">Advert Delete</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>      You have made a Advert deletion request. Are you sure you want to continue ?
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="onDelete()">Delete</button>
+      <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+    </div>
+  </div>
+</ng-template>

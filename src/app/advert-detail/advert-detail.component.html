@@ -7,89 +7,80 @@
     </ol>
   </nav>
 </div>
-
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
-    <div class="card-body " >
-      <h2 class="card-title">
-        Selam bu kedicik için yeni bir sahip arıyoruz. 
-      </h2>
-
-
-
-
-    
-
-
-
-
-
-
-      <div class="col-md-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-          
-            <ngb-tabset type="pills" class="pills-success">
-              <ngb-tab title="Gallery">
-                <ng-template ngbTabContent>
-                    
-                        <ng-image-slider [images]="imageObject" #nav></ng-image-slider>   
-                        
-                  
-                
-                </ng-template>
-              </ngb-tab>
-
-
-
-
-
-              <ngb-tab title="Advert Description">
-                <ng-template ngbTabContent>
-                    Selam bu kedicik için yeni bir sahip arıyoruz. Uzun zamandır bizimle ve ismine duyarlı. Ayrıca oldukça uslu da :)
-                </ng-template>
-              </ngb-tab>
-
-
-
-
-              <ngb-tab title="Animal Informations">
-                <ng-template ngbTabContent>
-                  <p><b>Age :</b>1</p>
-                  <p><b>Genre :</b>Cat</p>
-                  <p><b>Gender :</b>Male</p>
-                </ng-template>
-              </ngb-tab>
-
-              <ngb-tab title="Owner Informations">
-                <ng-template ngbTabContent>
-                    <p><b>Owner Name :</b>1</p>
-                    <p><b>Owner E-Mail :</b>ismailsefa.akdnz@gmail.com</p>
-                    <p><b>Owner Phone :</b>05397722431</p>
-                </ng-template>
-              </ngb-tab>
-
-              <ngb-tab title="Adress Informations">
-                <ng-template ngbTabContent>
-                    <p><b>Province :</b>İzmir</p>
-                    <p><b>District :</b>Bornova</p>
-                    <p><b>FullAddress :</b>1389 sokak no 145</p>
-                </ng-template>
-              </ngb-tab>
-
-
-
-            </ngb-tabset>
+    <div class="card-body ">
+      <h2 style="text-align: center;" class="card-title">
+        {{response.data.advertisementTitle}}</h2>
+      <p style="text-align: left;">{{response.data.advEntryDate | date:'medium'}}</p>
+      <span [ngSwitch]="response.data.status">
+        <span style="float:right;" class="badge badge-pill badge-success" *ngSwitchCase="0">Waiting</span>
+        <span style="justify-content: right;" class="badge badge-pill badge-info" *ngSwitchCase="1">Completing</span>
+        <span style="justify-content: right;" class="badge badge-pill badge-danger" *ngSwitchCase="2">Needs More</span>
+      </span>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div style="width: 91%; text-align: left;" class="card">
+            <div style=" border: 1px solid gray;
+            border-radius: 5px;" class="card-body">
+              <b>
+                <h4 class="card-title">Explanation</h4>
+              </b>
+              <p>{{response.data.advertisementExplanation}}</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div style=" border: 1px solid gray;
+              border-radius: 5px;" class="card-body">
+                <b>
+                  <h4 class="card-title">Animal Informations</h4>
+                </b>
+                <p><b>Age</b><br>{{response.data.advertisementAnimal.age}} </p>
+                <p><b>Genre</b><br>{{response.data.advertisementAnimal.genre}}</p>
+                <p><b>Gender</b><br>{{response.data.advertisementAnimal.gender}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div style=" border: 1px solid gray;
+              border-radius: 5px;" class="card-body">
+                <b>
+                  <h4 class="card-title">Owner Informations</h4>
+                </b>
+                <p><b>Owner Name</b><br>{{response.data.ownerUser.personName}}
+                  {{response.data.ownerUser.personLastName}}</p>
+                <p><b>Owner E-Mail</b><br>{{response.data.ownerUser.personEmail}}</p>
+                <p><b>Owner Phone</b><br>{{response.data.ownerUser.personPhone}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div style=" border: 1px solid gray;
+              border-radius: 5px;" class="card-body">
+                <b>
+                  <h4 class="card-title">Adress Informations</h4>
+                </b>
+                <p><b>Province</b><br>{{response.data.advertisementAddress.province}}</p>
+                <p><b>District</b><br>{{response.data.advertisementAddress.district}}</p>
+                <p><b>FullAddress</b><br>{{response.data.advertisementAddress.fullAddress}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-      
     </div>
+  </div>
 </div>
