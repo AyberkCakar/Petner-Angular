@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.2.0...v1.3.0) (2020-11-09)
+
+
+### Features
+
+* added advert delete modal ([cca9e0e](https://github.com/AyberkCakar/Petner-Angular/commit/cca9e0e872a7326d3f1095c048f8d5cc68837a0a))
+* added advert details page - api connection ([6bd9074](https://github.com/AyberkCakar/Petner-Angular/commit/6bd9074a18aa01e746a0a19e78db396fba839e41))
+* added advert service ([265cb64](https://github.com/AyberkCakar/Petner-Angular/commit/265cb64760bdcce206dba196a16f082d87617731))
+* added my advert list page ([a8b0719](https://github.com/AyberkCakar/Petner-Angular/commit/a8b0719a134a8aae11ad12a3753bce22ce09e485))
+* added notifications to all page ([310921c](https://github.com/AyberkCakar/Petner-Angular/commit/310921cc01472a23d55bbab4b69a5978966a8a2f))
+* update advert api connection ([6d7cb08](https://github.com/AyberkCakar/Petner-Angular/commit/6d7cb08cf44e831c7dd6301457a98a7e23ef923d))
+
+
+### Bug Fixes
+
+* check advert title length ([0b39357](https://github.com/AyberkCakar/Petner-Angular/commit/0b39357048d880baa5f8b67cfb4642c76bb87f91))
+* fix  graphic bug. ([5b16e0e](https://github.com/AyberkCakar/Petner-Angular/commit/5b16e0eac94e220eecd9c93b421e6525462521ad))
+* fix advert and update design ([8d77f47](https://github.com/AyberkCakar/Petner-Angular/commit/8d77f47b5bef263bc65ee817a38a2f44fd6e4ab4))
+* fix advert update service ([2e6b820](https://github.com/AyberkCakar/Petner-Angular/commit/2e6b8205ff02fea4b8def4f32711997a92acf78f))
+* fix udapte advert form page ([f9c639d](https://github.com/AyberkCakar/Petner-Angular/commit/f9c639d2296665b27498a9cabac7b393aecf06c0))
+
 ## [1.2.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.1.0...v1.2.0) (2020-11-04)
 
 
