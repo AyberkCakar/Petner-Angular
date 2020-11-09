@@ -1,87 +1,85 @@
 <div class="page-header">
-    <h3 class="page-title">
-      Advert
-    </h3>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/advert">Advert</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Add Advert</li>
-      </ol>
-    </nav>
-  </div>
-  <div class="col-12 grid-margin stretch-card">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">New Advert</h4>
-
-        <form class="forms-sample" >
-          <div class="form-group">
-            <label for="exampleInputName1">Advert Title</label>
-            <input type="text" class="form-control" #title >
+  <h3 class="page-title">
+    Advert
+  </h3>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/advert">Advert</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add Advert</li>
+    </ol>
+  </nav>
+</div>
+<div class="col-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">New Advert</h4>
+      <form class="forms-sample">
+        <div class="form-group">
+          <label for="exampleInputName1">Advert Title</label>
+          <input type="text" class="form-control" #title>
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea1">Advert Description</label>
+          <textarea class="form-control" #desc rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Advert Type</label>
+          <select class="form-control" #adverttype id="exampleFormControlSelect2">
+            <option value="0">Beslenme Yardımı</option>
+            <option value="1">Sahiplendirme</option>
+            <option value="2">Aşılama</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Animal Photo</label>
+          <div class="input-group col-xs-12">
+            <input #imageInput type="file" accept="image/*" class="form-control file-upload-info"
+              placeholder="Upload Image">
+            <span class="input-group-append">
+              <button class="file-upload-browse btn btn-gradient-primary" (click)="handleFileInput(imageInput)"
+                type="button">Upload</button>
+            </span>
           </div>
-          <div class="form-group">
-            <label for="exampleTextarea1">Advert Description</label>
-            <textarea class="form-control" #desc  rows="4"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlSelect2">Advert Type</label>
-            <select class="form-control" #adverttype id="exampleFormControlSelect2">
-              <option value="0">Beslenme Yardımı</option>
-              <option value="1">Sahiplendirme</option>
-              <option value="2">Aşılama</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Animal Photo</label>
-            <div class="input-group col-xs-12">
-              <input #imageInput
-                     type="file"
-                     accept="image/*"
-                     class="form-control file-upload-info"  placeholder="Upload Image">
-              <span class="input-group-append">
-                <button class="file-upload-browse btn btn-gradient-primary"  (click)="handleFileInput(imageInput)" type="button">Upload</button>
-              </span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">Animal Type</label>
-            <input type="text" class="form-control" #animaltype>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">Animal Age</label>
-            <input type="number" class="form-control" #age>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">Animal Gender</label>
-            <select class="form-control" #gender id="exampleFormControlSelect2">
-              <option>Erkek</option>
-              <option>Dişi</option>
-              <option>Bilinmiyor</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">City</label>
-            <input type="text" class="form-control" #city>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">District</label>
-            <input type="numeric" class="form-control" #district>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">Street</label>
-            <input type="text" class="form-control" #street id="exampleInputName1">
-          </div>
-          <div class="form-group">
-            <label for="exampleTextarea1">Address</label>
-            <textarea class="form-control" #adress id="exampleTextarea1" rows="4"></textarea>
-          </div>
-
-          <button type="submit" (click)="save(title.value,desc.value,adverttype.value,animaltype.value,age.value,gender.value,city.value,district.value,
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Type</label>
+          <input type="text" class="form-control" #animaltype>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Age</label>
+          <input type="number" class="form-control" #age>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Gender</label>
+          <select class="form-control" #gender id="exampleFormControlSelect2">
+            <option>Erkek</option>
+            <option>Dişi</option>
+            <option>Bilinmiyor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">City</label>
+          <input type="text" class="form-control" #city>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">District</label>
+          <input type="numeric" class="form-control" #district>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Street</label>
+          <input type="text" class="form-control" #street id="exampleInputName1">
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea1">Address</label>
+          <textarea class="form-control" #adress id="exampleTextarea1" rows="4"></textarea>
+        </div>
+        <button type="submit" (click)="save(title.value,desc.value,adverttype.value,animaltype.value,age.value,gender.value,city.value,district.value,
                                               street.value,adress.value)"
-                  class="btn btn-gradient-primary mr-2">Add</button>
-          <button routerLink="/advert" class="btn btn-light">Cancel</button>
-        </form>
-      </div>
+          class="btn btn-gradient-primary mr-2">Add</button>
+        <button routerLink="/advert" class="btn btn-light">Cancel</button>
+      </form>
     </div>
   </div>
+</div>
+
+<notifier-container></notifier-container>

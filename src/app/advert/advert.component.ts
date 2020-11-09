@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardModel } from '../Dashboard/dashboard.model';
-import {DashboardService} from '../../utils/services'
+import {AdvertService} from '../../utils/services'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-advert',
@@ -12,18 +13,23 @@ export class AdvertComponent implements OnInit {
   model: Array<DashboardModel>
   ID: string;
   constructor(
-    private dashboardService: DashboardService,
-    private modalService: NgbModal
+    private advertService: AdvertService,
+    private modalService: NgbModal,
+    private notifier: NotifierService
     ) { }
 
-    async ngOnInit() {
-      try {
-        this.model = <Array<DashboardModel>> await this.dashboardService.listAsync()
-        console.log(this.model)
+    public showNotification( type: string, message: string ): void {
+      this.notifier.notify( type, message );
+    }
 
+    async ngOnInit() {
+      this.onDelete();
+      try {
+        let response = await this.advertService.getMineAdvertAsync();
+        console.log(response)
       }  
       catch (error) {
-        console.log(error)
+        this.showNotification( 'error', error.message );      
       }
     }
     openSmallModal( smallModalContent , ID: string) {
@@ -34,5 +40,13 @@ export class AdvertComponent implements OnInit {
     async onDelete()
     {
         // istek
+        try {
+          let response = await this.advertService.deleteAsync(this.ID);
+          console.log(response)
+          await this.showNotification( 'success', response['message'] );
+
+        } catch (error) {
+          this.showNotification( 'error', error.message );
+        }
     }
 }

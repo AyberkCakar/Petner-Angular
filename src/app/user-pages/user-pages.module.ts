@@ -13,11 +13,12 @@ const routes: Routes = [
   { path: 'newpassword', component: NewpasswordComponent }
 ]
 
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ForgotpasswordComponent, NewpasswordComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
-  ]
+    ]
 })
 export class UserPagesModule { }
