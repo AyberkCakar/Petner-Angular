@@ -29,7 +29,7 @@ export class AdvertDetailComponent implements OnInit {
       let image = [];
       const model: ImageModel = new ImageModel();
       this.id = this._router.snapshot.paramMap.get('id');
-      this.response = await this.advertService.getAllAdvertAsync(this.id);
+      this.response = await this.advertService.findAdvertAsync(this.id);
       this.response.data.advertisementAnimal.animalPhotos.forEach(await function (value) {
         model.image = value;
         model.thumbImage = value;

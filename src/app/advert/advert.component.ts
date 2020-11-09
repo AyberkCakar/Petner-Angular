@@ -23,10 +23,8 @@ export class AdvertComponent implements OnInit {
     }
 
     async ngOnInit() {
-      this.onDelete();
       try {
-        let response = await this.advertService.getMineAdvertAsync();
-        console.log(response)
+        this.model =<Array<DashboardModel>> await this.advertService.getMineAdvertAsync();
       }  
       catch (error) {
         this.showNotification( 'error', error.message );      
@@ -39,12 +37,12 @@ export class AdvertComponent implements OnInit {
 
     async onDelete()
     {
-        // istek
         try {
           let response = await this.advertService.deleteAsync(this.ID);
-          console.log(response)
+          console.log(response);
           await this.showNotification( 'success', response['message'] );
-
+          this.modalService.dismissAll();
+          this.ngOnInit();
         } catch (error) {
           this.showNotification( 'error', error.message );
         }

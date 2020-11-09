@@ -58,7 +58,6 @@
 </div>
 
 
-
 <ng-template #smallModalContent let-modal class="modal fade" aria-labelledby="exampleModalLabel-3">
   <div class="modal-content">
     <div class="modal-header">
@@ -72,10 +71,8 @@
       </p>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-success" (click)="modal.onDelete()">Delete</button>
+      <button type="button" class="btn btn-success" (click)="onDelete()">Delete</button>
       <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
     </div>
   </div>
 </ng-template>
-
-<notifier-container></notifier-container>
