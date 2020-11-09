@@ -27,15 +27,20 @@ export class AdvertDetailComponent implements OnInit {
   async ngOnInit() {
     try {
       let image = [];
+      
       const model: ImageModel = new ImageModel();
       this.id = this._router.snapshot.paramMap.get('id');
       this.response = await this.advertService.findAdvertAsync(this.id);
-      this.response.data.advertisementAnimal.animalPhotos.forEach(await function (value) {
+      console.log(this.response)
+      this.response['data'].advertisementAnimal.animalPhotos.forEach(await function (value) {
+        console.log(value)
         model.image = value;
         model.thumbImage = value;
         image.push(model);
       });
+      
       this.imageObject = image;
+      
     } catch (error) {
       this.showNotification( 'error', error.message );      
     }

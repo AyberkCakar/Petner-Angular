@@ -30,4 +30,15 @@ export class UpdateAdvertComponent implements OnInit {
       this.showNotification( 'error', error.message );      
     }
   }
+
+  async onUpdate(title: string,description: string,gender: string,genre: string){
+    try {
+      let response = <DashboardModel>await this.advertService.updateAsync(this.model,this.model.advertisementID);
+      console.log(response)
+      this.showNotification( 'success', response['message'] );
+    } catch (error) {
+      this.showNotification( 'error', error.message );      
+    }
+  }
+
 }

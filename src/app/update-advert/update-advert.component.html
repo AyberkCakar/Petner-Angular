@@ -16,12 +16,12 @@
       <form class="forms-sample">
         <div class="form-group">
           <label for="exampleInputName1">Advert Title</label>
-          <input type="text" class="form-control"  value={{model.data.advertisementTitle}}>
+          <input type="text" class="form-control" #title value={{model.data.advertisementTitle}}>
           
         </div>
         <div class="form-group">
           <label for="exampleTextarea1">Advert Description</label>
-          <textarea class="form-control" value={{model.data.advertisementExplanation}} id="exampleTextarea1" rows="4"></textarea>
+          <textarea class="form-control" #description value={{model.data.advertisementExplanation}} id="exampleTextarea1" rows="4"></textarea>
         </div>
         <div class="form-group">
           <label for="exampleInputName1">Animal Age</label>
@@ -29,7 +29,15 @@
         </div>
         <div class="form-group">
           <label for="exampleInputName1">Animal Gender</label>
-          <input type="text" class="form-control"  value={{model.data.advertisementAnimal.gender}}>
+          <select class="form-control" #gender  >
+            <option [selected]="model.data.advertisementAnimal.gender=='Erkek'">Erkek</option>
+            <option [selected]="model.data.advertisementAnimal.gender=='Dişi'">Dişi</option>
+            <option [selected]="model.data.advertisementAnimal.gender=='Bilinmiyor'">Bilinmiyor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Animal Genre</label>
+          <input type="text" class="form-control" #genre value={{model.data.advertisementAnimal.genre}}>
         </div>
         <div class="form-group">
           <label for="exampleInputName1">City</label>
@@ -43,7 +51,7 @@
           <label for="exampleTextarea1">Address</label>
           <textarea class="form-control"  value={{model.data.advertisementAddress.fullAddress}} rows="4"></textarea>
         </div>
-        <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
+        <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onUpdate(title.value,description.value,gender.value,genre.value)">Update</button>
         <button class="btn btn-light">Cancel</button>
       </form>
     </div>

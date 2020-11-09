@@ -24,7 +24,7 @@ export class AdvertService {
 
   async updateAsync(values,id){
     const path = 'advertisement/update?id='+id;
-    return await this._apiFetchService.requestAsync('PUT','path',values,true);
+    return await this._apiFetchService.requestAsync('POST','path',values,true);
   }
   
   async deleteAsync(id){

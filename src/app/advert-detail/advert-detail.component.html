@@ -14,9 +14,9 @@
         {{response.data.advertisementTitle}}</h2>
       <p style="text-align: left;">{{response.data.advEntryDate}}</p>
       <span [ngSwitch]="response.data.status">
-        <span style="float:right;" class="badge badge-pill badge-success" *ngSwitchCase="0"> deneme 1</span>
-        <span style="justify-content: right;" class="badge badge-pill badge-info" *ngSwitchCase="1"> deneme 2</span>
-        <span style="justify-content: right;" class="badge badge-pill badge-danger" *ngSwitchCase="2"> deneme 3</span>
+        <span style="float:right;" class="badge badge-pill badge-success" *ngSwitchCase="0">Waiting</span>
+        <span style="justify-content: right;" class="badge badge-pill badge-info" *ngSwitchCase="1">Completing</span>
+        <span style="justify-content: right;" class="badge badge-pill badge-danger" *ngSwitchCase="2">Needs More</span>
       </span>
       <hr>
       <div class="container">
