@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
       
       let count=0;
       let titles=[]
-      this.model.data.forEach(function (value) {
+      this.model['data'].forEach(function (value) {
         count++;
         
         if(value["advertisementTitle"].length <25){
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
       });
 
       for (let i = 0; i < count; i++) {
-       this.model.data[i]["advertisementTitle"]=titles[i];
+       this.model['data'][i]["advertisementTitle"]=titles[i];
       }
       
       console.log(this.model) 

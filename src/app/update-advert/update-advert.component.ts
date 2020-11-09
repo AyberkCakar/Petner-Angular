@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DashboardModel } from '../Dashboard/dashboard.model';
 
 @Component({
   selector: 'app-update-advert',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-advert.component.scss']
 })
 export class UpdateAdvertComponent implements OnInit {
+  model: DashboardModel = new DashboardModel();
+  constructor(
+    private _router: ActivatedRoute 
+  ) { }
 
-  constructor() { }
+  async ngOnInit(){
+    this.model.advertisementID = this._router.snapshot.paramMap.get('id');
 
-  ngOnInit(): void {
   }
 
 }
