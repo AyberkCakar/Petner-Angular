@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DashboardModel } from '../Dashboard/dashboard.model';
 import {NotifierService} from 'angular-notifier';
+import { AdvertService } from 'src/utils/services';
 
 @Component({
   selector: 'app-update-advert',
@@ -12,7 +13,8 @@ export class UpdateAdvertComponent implements OnInit {
   model: DashboardModel = new DashboardModel();
   constructor(
     private _router: ActivatedRoute,
-    private notifier: NotifierService
+    private notifier: NotifierService,
+    private advertService: AdvertService
   ) { }
 
   public showNotification( type: string, message: string ): void {
@@ -22,6 +24,8 @@ export class UpdateAdvertComponent implements OnInit {
   async ngOnInit(){
     try {
       this.model.advertisementID = this._router.snapshot.paramMap.get('id');
+      this.model = <DashboardModel>await this.advertService.findAdvertAsync(this.model.advertisementID);
+      console.log(this.model)
     } catch (error) {
       this.showNotification( 'error', error.message );      
     }
