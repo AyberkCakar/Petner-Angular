@@ -39,8 +39,16 @@
               <td routerLink="/detailAdvert/{{advert.advertisementID}}"> {{advert.advertisementTitle}} </td>
               <td routerLink="/detailAdvert/{{advert.advertisementID}}"> {{advert.advertisementAnimal.genre}}</td>
               <td>{{advert.date | date:'mediumDate'}} </td>
-              <td >{{advert.advertisementType}} </td>
-              <td>{{advert.status}}</td>
+              <td ><span [ngSwitch]="advert.advertisementType">
+                <span *ngSwitchCase="0">Food Help</span>
+                <span *ngSwitchCase="1">Ownership</span>
+                <span *ngSwitchCase="2">Vaccination</span>
+              </span> </td>
+              <td><span [ngSwitch]="advert.status">
+                <span *ngSwitchCase="0"> Waiting </span>
+                <span *ngSwitchCase="1"> Completing</span>
+                <span *ngSwitchCase="2"> Needs More</span>
+              </span></td>
               <td>
                 <button type="button" routerLink="/updateAdvert/{{advert.advertisementID}}" class="btn btn-danger btn-rounded btn-icon">
                   <i class="mdi mdi-sync"></i>
