@@ -25,6 +25,7 @@ export class AdvertComponent implements OnInit {
     async ngOnInit() {
       try {
         this.model =<Array<DashboardModel>> await this.advertService.getMineAdvertAsync();
+        console.log(this.model)
       }  
       catch (error) {
         this.showNotification( 'error', error.message );      

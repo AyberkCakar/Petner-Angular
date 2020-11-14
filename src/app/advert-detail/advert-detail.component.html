@@ -82,10 +82,6 @@
         </div>
       </div>
 
-
-     
-      
-
     </div>
   </div>
 </div>
@@ -99,10 +95,6 @@
         Comments</h2>
 
       <div class="comment_block">
-
-
-
-       
          <div class="create_new_comment">
            <div class="user_avatar">
              <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
@@ -129,11 +121,16 @@
                    <li><i class="fa fa-pencil"></i> <span class="user">{{comment.personName}} {{comment.personLastName}}</span></li>
                  </ul>
                </div>
+
+               
+
                <div class="comment_tools">
                  <ul>
-                   <li><i class="fa fa-remove"></i></li> 
+                   <li><i [hidden]="comment.isDeletable == false" class="fa fa-remove"></i></li> 
                  </ul>
                </div>
+
+
              </div>
             </ul> 
             </div>
