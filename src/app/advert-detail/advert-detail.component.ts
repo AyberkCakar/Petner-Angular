@@ -50,8 +50,8 @@ export class AdvertDetailComponent implements OnInit {
     this.comment.comment = comment
     try {
       const res=await this.commentService.insertAsync(this.id, this.comment)
-      if(res['error']==false){
-        this.showNotification( 'error', res['error'] );      
+      if(res['error']==true){
+        this.showNotification( 'error', res['message'] );      
       }else{
         this.showNotification( 'success', res['message'] ); 
       }

@@ -10,7 +10,7 @@ export class DashboardService {
   }
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','advertisement/get');
+    return await this._apiFetchService.requestAsync('GET','advertisement/get',null,true);
   }
 
 }
