@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ImageService, AdvertService } from '../../utils/services';
 import { AdvertModel, Animal, Address } from './advert.model';
 import { NotifierService } from 'angular-notifier';
-
+import { Router } from '@angular/router'
 class ImageSnippet {
   pending: boolean = false;
   status: string = 'init';
@@ -23,7 +23,8 @@ export class AddAdvertComponent implements OnInit {
   constructor(
     private imageService: ImageService,
     private AdvertService: AdvertService,
-    private notifier: NotifierService
+    private notifier: NotifierService,
+    private router: Router
   ) { }
 
   public showNotification(type: string, message: string): void {
@@ -70,9 +71,9 @@ export class AddAdvertComponent implements OnInit {
     this.advertModel.advertisementAddress = this.adressModel;
 
     try {
-      await this.AdvertService.addAsync(this.advertModel);
-      await this.showNotification( 'success', /*response['message']*/'test' );
-
+      let response =await this.AdvertService.addAsync(this.advertModel);
+      await this.showNotification( 'success', response['message'] );
+      this.router.navigate(['/advert']);
     }
     catch (error) {
       this.showNotification( 'error', error.message );      
