@@ -100,6 +100,9 @@
 
       <div class="comment_block">
 
+
+
+       
          <div class="create_new_comment">
            <div class="user_avatar">
              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/ManikRathee/73.jpg">
@@ -110,59 +113,32 @@
            </div>
          </div>
     
-         <div class="new_comment">
+         <div *ngFor="let comment of response.data.comments" class="new_comment">
            <ul class="user_comment">
              <div class="user_avatar">
-               <img src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/73.jpg">
+               <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
              </div>
              <div class="comment_body">
-               <p>Gastropub cardigan jean shorts, kogi Godard PBR&B lo-fi locavore. Organic chillwave vinyl Neutra. Bushwick Helvetica cred freegan, crucifix Godard craft beer deep v mixtape cornhole Truffaut master cleanse pour-over Odd Future beard. Portland polaroid iPhone.</p>
+               <p>{{comment.comment}}</p>
              </div>
              <div class="comment_toolbar">
                <div class="comment_details">
                  <ul>
-                   <li><i class="fa fa-clock-o"></i> 13:94</li>
-                   <li><i class="fa fa-calendar"></i> 04/01/2015</li>
-                   <li><i class="fa fa-pencil"></i> <span class="user">John Smith</span></li>
+                   
+                   <li><i class="fa fa-calendar"></i> {{comment.date}}</li>
+                   <li><i class="fa fa-pencil"></i> <span class="user">{{comment.personName}} {{comment.personLastName}}</span></li>
                  </ul>
                </div>
                <div class="comment_tools">
                  <ul>
-                   <li><i class="fa fa-share-alt"></i></li>
-                   <li><i class="fa fa-reply"></i></li>
-                   <li><i class="fa fa-heart love"></i></li>
+                   <li><i class="fa fa-remove"></i></li> 
                  </ul>
                </div>
              </div>
             </ul> 
             </div>
 
-         <div class="new_comment">
-           <ul class="user_comment">
-             <div class="user_avatar">
-               <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/73.jpg">
-             </div>
-             <div class="comment_body">
-               <p>Gastropub cardigan jean shorts, kogi Godard PBR&B lo-fi locavore. Organic chillwave vinyl Neutra. Bushwick Helvetica cred freegan, crucifix Godard craft beer deep v mixtape cornhole Truffaut master cleanse pour-over Odd Future beard. Portland polaroid iPhone.</p>
-             </div> 
-             <div class="comment_toolbar">
-               <div class="comment_details">
-                 <ul>
-                   <li><i class="fa fa-clock-o"></i> 13:94</li>
-                   <li><i class="fa fa-calendar"></i> 04/01/2015</li>
-                   <li><i class="fa fa-pencil"></i> <span class="user">John Smith</span></li>
-                 </ul>
-               </div>
-               <div class="comment_tools">
-                 <ul>
-                   <li><i class="fa fa-share-alt"></i></li>
-                   <li><i class="fa fa-reply"></i></li>
-                   <li><i class="fa fa-heart love"></i></li>
-                 </ul>
-               </div>
-             </div>
-            </ul> 
-            </div>
+       
 
 </div>
 </div>
