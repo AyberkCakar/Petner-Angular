@@ -3,6 +3,8 @@ import { DashboardModel } from '../Dashboard/dashboard.model';
 import {AdvertService} from '../../utils/services'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-advert',

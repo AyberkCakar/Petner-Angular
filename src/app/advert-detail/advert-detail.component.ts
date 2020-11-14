@@ -55,6 +55,7 @@ export class AdvertDetailComponent implements OnInit {
       }else{
         this.showNotification( 'success', res['message'] ); 
       }
+      $('#comment').val(" ")
       this.ngOnInit()
     } catch (error) {
       this.showNotification( 'error', error.message );      
