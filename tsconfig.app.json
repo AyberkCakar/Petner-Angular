@@ -7,9 +7,6 @@
   "angularCompilerOptions": {
     "preserveWhitespaces": true //Not working in angular 8.1.1
   },
-  "files": [
-    "src/app/Dashboard/dashboard.model.ts"
-  ],
   "include": [
     "src/**/*.ts"
   ],
