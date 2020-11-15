@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardModel } from '../Dashboard/dashboard.model';
+import { DashboardModel } from '../dashboard/dashboard.model';
 import {AdvertService} from '../../utils/services'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
