@@ -1,6 +1,9 @@
 {
   "name": "petner-app",
   "version": "1.3.0",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node serve.js -p $PORT",
