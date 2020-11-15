@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AdvertService } from '../../utils/services';
+import { AdvertService, CommentService } from '../../utils/services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageModel } from './image.model'
 import { NotifierService } from 'angular-notifier';
+import { CommentModel} from './comment.model';
 
 @Component({
   selector: 'app-advert-detail',
@@ -10,6 +11,7 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./advert-detail.component.scss']
 })
 export class AdvertDetailComponent implements OnInit {
+  comment: CommentModel = new CommentModel();
   id: string;
   response;
   imageObject: Array<object>;
@@ -17,6 +19,7 @@ export class AdvertDetailComponent implements OnInit {
     private _router: ActivatedRoute,
     private router: Router,
     private advertService: AdvertService,
+    private commentService: CommentService,
     private notifier: NotifierService
   ) { }
 
@@ -38,6 +41,22 @@ export class AdvertDetailComponent implements OnInit {
         image.push(model);
       });
       this.imageObject = image;
+    } catch (error) {
+      this.showNotification( 'error', error.message );      
+    }
+  }
+
+  async createComment(comment:string){
+    this.comment.comment = comment
+    try {
+      const res=await this.commentService.insertAsync(this.id, this.comment)
+      if(res['error']==true){
+        this.showNotification( 'error', res['message'] );      
+      }else{
+        this.showNotification( 'success', res['message'] ); 
+      }
+      $('#comment').val(" ")
+      this.ngOnInit()
     } catch (error) {
       this.showNotification( 'error', error.message );      
     }

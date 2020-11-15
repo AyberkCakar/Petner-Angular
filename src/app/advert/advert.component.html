@@ -28,32 +28,43 @@
               <th>  Advert Creation Date  </th>
               <th>  Advert Type </th>
               <th> Advert Status </th>
+              <th> isActive </th>
               <th>  Operation </th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let advert of model['data']">
-              <td class="py-1" routerLink="/detailAdvert/{{advert.advertisementID}}">
+              <td class="py-1"  [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" >
                 <img src={{advert.advertisementAnimal.animalPhoto}} alt="image" />
               </td>
-              <td routerLink="/detailAdvert/{{advert.advertisementID}}"> {{advert.advertisementTitle}} </td>
-              <td routerLink="/detailAdvert/{{advert.advertisementID}}"> {{advert.advertisementAnimal.genre}}</td>
+              <td [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" > {{advert.advertisementTitle}} </td>
+              <td [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" > {{advert.advertisementAnimal.genre}}</td>
               <td>{{advert.date | date:'mediumDate'}} </td>
-              <td ><span [ngSwitch]="advert.advertisementType">
+              <td >
+                <span [ngSwitch]="advert.advertisementType">
                 <span *ngSwitchCase="0">Food Help</span>
                 <span *ngSwitchCase="1">Ownership</span>
                 <span *ngSwitchCase="2">Vaccination</span>
-              </span> </td>
-              <td><span [ngSwitch]="advert.status">
+              </span> 
+            </td>
+              <td>
+                <span [ngSwitch]="advert.status">
                 <span *ngSwitchCase="0"> Waiting </span>
                 <span *ngSwitchCase="1"> Completing</span>
                 <span *ngSwitchCase="2"> Needs More</span>
-              </span></td>
+              </span>
+            </td>
               <td>
-                <button type="button" routerLink="/updateAdvert/{{advert.advertisementID}}" class="btn btn-danger btn-rounded btn-icon">
+                <span [ngSwitch]="advert.isDeleted">
+                <span class="badge badge-pill badge-danger" *ngSwitchCase="true">Deactive</span>
+                <span class="badge badge-pill badge-success"*ngSwitchCase="false">Active</span>
+              </span>
+            </td>
+              <td>
+                <button [disabled]="advert.isDeleted == true" type="button" routerLink="/updateAdvert/{{advert.advertisementID}}" class="btn btn-danger btn-rounded btn-icon">
                   <i class="mdi mdi-sync"></i>
                 </button>
-                <button type="button" (click)="openSmallModal(smallModalContent,advert.advertisementID)" class="btn btn-gradient-dark btn-rounded btn-icon">
+                <button [disabled]="advert.isDeleted == true" type="button" (click)="openSmallModal(smallModalContent,advert.advertisementID)" class="btn btn-gradient-dark btn-rounded btn-icon">
                   <i class="mdi mdi-delete"></i>
                 </button>
               </td>

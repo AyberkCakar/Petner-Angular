@@ -5,12 +5,12 @@ import { ApiFetchService } from '../api-fetch/api-fetch.service';
 @Injectable({
   providedIn: 'root',
 })
-export class DashboardService {
+export class CommentService {
   constructor(private _apiFetchService: ApiFetchService) {
   }
-
-  async listAsync() {
-    return await this._apiFetchService.requestAsync('GET','advertisement/get',null,true);
+  
+  async insertAsync(id, values){
+    const path = 'comment?id='+id;
+    return await this._apiFetchService.requestAsync('POST',path,values,true);
   }
-
 }

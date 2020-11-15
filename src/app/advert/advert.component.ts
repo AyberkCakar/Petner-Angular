@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardModel } from '../Dashboard/dashboard.model';
+import { DashboardModel } from '../dashboard/dashboard.model';
 import {AdvertService} from '../../utils/services'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NotifierService} from 'angular-notifier';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-advert',
@@ -25,6 +27,7 @@ export class AdvertComponent implements OnInit {
     async ngOnInit() {
       try {
         this.model =<Array<DashboardModel>> await this.advertService.getMineAdvertAsync();
+        console.log(this.model)
       }  
       catch (error) {
         this.showNotification( 'error', error.message );      

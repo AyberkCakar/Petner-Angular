@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DashboardModel } from '../Dashboard/dashboard.model';
+import { DashboardModel } from '../dashboard/dashboard.model';
 import {NotifierService} from 'angular-notifier';
 import { AdvertService } from 'src/utils/services';
 
