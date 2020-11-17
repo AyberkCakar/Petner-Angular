@@ -10,12 +10,13 @@ import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 export class NavbarComponent implements OnInit {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
-  
+  name: string;
   constructor(config: NgbDropdownConfig) {
     config.placement = 'bottom-right';
   }
 
   ngOnInit() {
+    this.name = localStorage.getItem('name');
   }
 
   // toggle sidebar in small devices

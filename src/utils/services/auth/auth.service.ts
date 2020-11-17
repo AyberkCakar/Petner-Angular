@@ -19,6 +19,7 @@ export class AuthService {
         user
       );
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('name', response.data.name + ' ' +response.data.lastName);
       return response;
     }catch(error)
     {
