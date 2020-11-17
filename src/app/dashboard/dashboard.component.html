@@ -14,39 +14,37 @@
     </ul>
   </nav>
 </div>
-<div class="container">
-  <div class="row">
-    <div style="margin-top: 20px" class="col-lg-4 justify-content-center" *ngFor="let data of model['data']">
-      <igx-card routerLink="/detailAdvert/{{data.advertisementID}}">
-        <igx-card-media height="196px">
-          <img style="width: 100%;" src={{data.advertisementAnimal.animalPhoto}}>
-        </igx-card-media>
-        <igx-card-header>
-          <h3 igxCardHeaderTitle>{{data.advertisementTitle}}</h3>
-        </igx-card-header>
-        <igx-card-content>
-          <span><b>Date</b>: {{data.date}}</span>
-          <br>
-          <br>
-          <span [ngSwitch]="data.advertisementType">
-            <span *ngSwitchCase="0"><b>Advert Type</b>: Food Help</span>
-            <span *ngSwitchCase="1"><b>Advert Type</b>: Ownership</span>
-            <span *ngSwitchCase="2"><b>Advert Type</b>: Vaccination</span>
-          </span>
-          <br>
-          <br>
-          <span><b>Province</b>: {{data.advertisementAddress.province}}</span>
-        </igx-card-content>
-        <igx-card-actions>
-          <span class=" badge badge-pill badge-primary ">
-            <b>{{data.advertisementAnimal.genre}}</b></span>
-          <span [ngSwitch]="data.status">
-            <span class="badge badge-pill badge-success" *ngSwitchCase="0"> Waiting </span>
-            <span class="badge badge-pill badge-info" *ngSwitchCase="1"> Completing</span>
-            <span class="badge badge-pill badge-danger" *ngSwitchCase="2"> Needs More</span>
-          </span>
-        </igx-card-actions>
-      </igx-card>
-    </div>
+<div class="row">
+  <div style="margin-top: 20px" class="col-lg-4" *ngFor="let data of model['data']">
+    <igx-card routerLink="/detailAdvert/{{data.advertisementID}}">
+      <igx-card-media height="196px">
+        <img style="width: 100%;" src={{data.advertisementAnimal.animalPhoto}}>
+      </igx-card-media>
+      <igx-card-header>
+        <div [ngSwitch]="data.status">
+          <div style="width: 70px; font-size: 12px;" class="badge badge-pill badge-success" *ngSwitchCase="0"> Waiting </div>
+          <div style="width: 70px; font-size: 12px;"  class="badge badge-pill badge-info" *ngSwitchCase="1"> Completing</div>
+          <div style="width: 70px; font-size: 12px;"  class="badge badge-pill badge-danger" *ngSwitchCase="2"> Needs More</div>
+        </div>
+        <h3 igxCardHeaderTitle>{{data.advertisementTitle}}</h3>
+      </igx-card-header>
+      <igx-card-content style="margin-left: 20px;">
+        <span><b>Date</b>: {{data.date}}</span>
+        <br>
+        <br>
+        <span [ngSwitch]="data.advertisementType">
+          <span *ngSwitchCase="0"><b>Advert Type</b>: Food Help</span>
+          <span *ngSwitchCase="1"><b>Advert Type</b>: Ownership</span>
+          <span *ngSwitchCase="2"><b>Advert Type</b>: Vaccination</span>
+        </span>
+        <br>
+        <br>
+        <span><b>Province</b>: {{data.advertisementAddress.province}}</span>
+      </igx-card-content>
+      <igx-card-actions style="margin-left: 20px;">
+        <span style="width: 120px; font-size: 12px;" class=" badge badge-pill badge-primary ">
+          <b>{{data.advertisementAnimal.genre}}</b></span>
+      </igx-card-actions>
+    </igx-card>
   </div>
 </div>

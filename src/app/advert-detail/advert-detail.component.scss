@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
   }
+
   
   /* Position the image container (needed to position the left and right arrows) */
   .container {
@@ -63,12 +64,6 @@
     color: white;
   }
   
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
   /* Six columns side by side */
   .column {
     float: left;
@@ -88,7 +83,8 @@
   div.card {
     width: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
+	text-align: center;
+	justify-content: center;
   }
 
   @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
@@ -108,14 +104,6 @@ $SUBTLE_WHITE: #F9F9F9;
 $BLUE: #6495ED;
 $RED: #FF6347;
 
-*,
-*:before,
-*:after {
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-  transition: all 0.2s ease;
-}
 
 body, html {
 	height: 100%;
@@ -233,7 +221,7 @@ body {
 					display: inline-block;
 					padding: 5px;
 					font-size: .7rem;
-					color: lighten($GREY, 5%);
+					color: lighten(black, 50%);
 					&:hover {
 						cursor: pointer; 
 					}
@@ -258,23 +246,19 @@ body {
 					}
 				}
 			}
-
 			// replies
 
 		}
-
 		.user {
 			&:hover {
 				color: $BLUE;
 				text-decoration: underline;
 				}
 			}
-
 		.love {
 			&:hover {
 				color: $RED;
 			}
 		}
 	}
-
 }
