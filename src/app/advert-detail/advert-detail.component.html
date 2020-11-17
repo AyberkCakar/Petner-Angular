@@ -95,48 +95,42 @@
         Comments</h2>
 
       <div class="comment_block">
-         <div class="create_new_comment">
-           <div class="user_avatar">
-             <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
-           </div>
-           <div class="input_comment">
-             <input #comment type="text" id="comment" placeholder="Write your comment.">
-             <input (click)="createComment(comment.value)"  type="button" style="height: 30px; width: 25%; float: right;" class="btn btn-primary btn-lg btn-block" value="Share" placeholder="Write your comment.">
-           </div>
-         </div>
-    
-         <div *ngFor="let comment of response.data.comments" class="new_comment">
-           <ul class="user_comment">
-             <div class="user_avatar">
-               <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
-             </div>
-             <div class="comment_body">
-               <p>{{comment.comment}}</p>
-             </div>
-             <div class="comment_toolbar">
-               <div class="comment_details">
-                 <ul>
-                   
-                   <li><i class="fa fa-calendar"></i> {{comment.date}}</li>
-                   <li><i class="fa fa-pencil"></i> <span class="user">{{comment.personName}} {{comment.personLastName}}</span></li>
-                 </ul>
-               </div>
+        <div class="create_new_comment">
+          <div class="user_avatar">
+            <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
+          </div>
+          <div class="input_comment">
+            <input #comment type="text" id="comment" placeholder="Write your comment.">
+            <input (click)="createComment(comment.value)" type="button" style="height: 30px; width: 25%; float: right;"
+              class="btn btn-primary btn-lg btn-block" value="Share" placeholder="Write your comment.">
+          </div>
+        </div>
 
-               
-
-               <div class="comment_tools">
-                 <ul>
-                   <li><i [hidden]="comment.isDeletable == false" class="fa fa-remove"></i></li> 
-                 </ul>
-               </div>
-
-
-             </div>
-            </ul> 
+        <div *ngFor="let comment of response.data.comments; let index =  index" class="new_comment"  id='{{index}}'>
+          <ul class="user_comment">
+            <div class="user_avatar">
+              <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png">
             </div>
+            <div class="comment_body">
+              <p>{{comment.comment}}</p>
+            </div>
+            <div class="comment_toolbar">
+              <div class="comment_details">
+                <ul>
 
-       
-
-</div>
-</div>
-</div>
+                  <li><i class="fa fa-calendar"></i> {{comment.date}}</li>
+                  <li><i class="fa fa-pencil"></i> <span class="user">{{comment.personName}}
+                      {{comment.personLastName}}</span></li>
+                </ul>
+              </div>
+              <div class="comment_tools">
+                <ul>
+                  <li><i (click)="onRemove(index)" [hidden]="comment.isDeletable == false" class="fa fa-remove"></i></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -61,4 +61,16 @@ export class AdvertDetailComponent implements OnInit {
       this.showNotification( 'error', error.message );      
     }
   }
+
+
+  async onRemove(index: number)
+  {
+    try {
+      const id = '#'+index
+      $(id).remove();
+      this.showNotification( 'success', 'Yorumunuz Başarıyla Silinidi.' ); 
+    } catch (error) {
+      this.showNotification( 'error', error['message'] );      
+    }
+  }
 }
