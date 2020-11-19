@@ -67,16 +67,29 @@
         </div>
         <div class="form-group">
           <label for="exampleInputName1">Street</label>
-          <input type="text" class="form-control" #street id="exampleInputName1">
+          <input type="text" class="form-control" #street>
         </div>
         <div class="form-group">
           <label for="exampleTextarea1">Address</label>
-          <textarea class="form-control" #adress id="exampleTextarea1" rows="4"></textarea>
+          <textarea class="form-control" #adress rows="4"></textarea>
         </div>
+
+        <div class="form-group">
+          <label>Enter address</label>
+          <input style="margin-bottom: 10px;" type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+            placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+            #search>
+
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+              (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+        </div>
+        <br>
         <button type="submit" (click)="save(title.value,desc.value,adverttype.value,animaltype.value,age.value,gender.value,city.value,district.value,
                                               street.value,adress.value)"
           class="btn btn-gradient-primary mr-2">Add</button>
-        <button routerLink="/advert" class="btn btn-light">Cancel</button>
+        <button routerLink="/advert" class="btn btn-dark">Cancel</button>
       </form>
     </div>
   </div>
