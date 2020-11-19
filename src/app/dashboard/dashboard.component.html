@@ -5,17 +5,20 @@
     </span>
     Dashboard
   </h3>
-  <nav aria-label="breadcrumb">
-    <ul class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">
-        <span></span>Overview
-        <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-      </li>
-    </ul>
-  </nav>
+  <div style="float: right;">
+    <div class="searchBox">
+      <input class="searchInput"type="text" [(ngModel)]="searchText"
+      placeholder="Search" name="SearchText">
+      <button class="searchButton" href="#">
+          <i class="mdi mdi-yeast">
+          </i>
+      </button>
+    </div>
+  </div>
 </div>
-<div class="row">
-  <div style="margin-top: 20px" class="col-lg-4" *ngFor="let data of model['data']">
+
+<div class="row" style="margin-top: 20px;">
+  <div style="margin-top: 20px" class="col-lg-4" *ngFor="let data of model['data'] | filter: searchText ">
     <igx-card routerLink="/detailAdvert/{{data.advertisementID}}">
       <igx-card-media height="196px">
         <img style="width: 100%;" src={{data.advertisementAnimal.animalPhoto}}>
