@@ -11,6 +11,7 @@ import { NotifierService } from 'angular-notifier';
 export class DashboardComponent implements OnInit {
 
   model: Array<DashboardModel>
+  searchText: String;
 
   constructor(
     private dashboardService: DashboardService,

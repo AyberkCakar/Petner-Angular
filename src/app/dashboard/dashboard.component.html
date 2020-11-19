@@ -5,30 +5,33 @@
     </span>
     Dashboard
   </h3>
-  <nav aria-label="breadcrumb">
-    <ul class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">
-        <span></span>Overview
-        <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-      </li>
-    </ul>
-  </nav>
+  <div style="float: right;">
+    <div class="searchBox">
+      <input class="searchInput"type="text" [(ngModel)]="searchText"
+      placeholder="Search" name="SearchText">
+      <button class="searchButton" href="#">
+          <i class="mdi mdi-yeast">
+          </i>
+      </button>
+    </div>
+  </div>
 </div>
-<div class="row">
-  <div style="margin-top: 20px" class="col-lg-4" *ngFor="let data of model['data']">
+
+<div class="row" style="margin-top: 20px;">
+  <div style="margin-top: 20px" class="col-lg-4" *ngFor="let data of model['data'] | filter: searchText ">
     <igx-card routerLink="/detailAdvert/{{data.advertisementID}}">
       <igx-card-media height="196px">
         <img style="width: 100%;" src={{data.advertisementAnimal.animalPhoto}}>
       </igx-card-media>
       <igx-card-header>
-        <div [ngSwitch]="data.status">
-          <div style="width: 70px; font-size: 12px;" class="badge badge-pill badge-success" *ngSwitchCase="0"> Waiting </div>
-          <div style="width: 70px; font-size: 12px;"  class="badge badge-pill badge-info" *ngSwitchCase="1"> Completing</div>
-          <div style="width: 70px; font-size: 12px;"  class="badge badge-pill badge-danger" *ngSwitchCase="2"> Needs More</div>
-        </div>
         <h3 igxCardHeaderTitle>{{data.advertisementTitle}}</h3>
       </igx-card-header>
-      <igx-card-content style="margin-left: 20px;">
+      <igx-card-content>
+        <span style="width: 90px; font-size: 12px;" class=" badge badge-pill badge-primary ">
+          {{data.advertisementAnimal.genre}}
+        </span>
+        <br>
+        <br>
         <span><b>Date</b>: {{data.date}}</span>
         <br>
         <br>
@@ -41,9 +44,12 @@
         <br>
         <span><b>Province</b>: {{data.advertisementAddress.province}}</span>
       </igx-card-content>
-      <igx-card-actions style="margin-left: 20px;">
-        <span style="width: 120px; font-size: 12px;" class=" badge badge-pill badge-primary ">
-          <b>{{data.advertisementAnimal.genre}}</b></span>
+      <igx-card-actions>
+        <div [ngSwitch]="data.status">
+          <div style="width: 100px; font-size: 13px;" class="badge badge-pill badge-success" *ngSwitchCase="0"><b> Waiting </b></div>
+          <div style="width: 100px; font-size: 13px;"  class="badge badge-pill badge-info" *ngSwitchCase="1"> Completing</div>
+          <div style="width: 100px; font-size: 13px;"  class="badge badge-pill badge-danger" *ngSwitchCase="2"> Needs More</div>
+        </div>
       </igx-card-actions>
     </igx-card>
   </div>

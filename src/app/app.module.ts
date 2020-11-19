@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {  HttpClientModule } from '@angular/common/http';
 import { IgxCardModule } from 'igniteui-angular';
+import { NgSearchFilterModule } from 'ng-search-filter';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -90,6 +91,7 @@ const customNotifierOptions: NotifierOptions = {
     HttpClientModule,
     IgxCardModule,
     NgImageSliderModule,
+    NgSearchFilterModule,
     NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [ThemeService],

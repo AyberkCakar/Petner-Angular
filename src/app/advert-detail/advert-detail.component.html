@@ -17,13 +17,13 @@
           <p style="text-align: left;margin: 0px;">{{response.data.advEntryDate | date:'medium'}}</p>
         </div>
         <div class="col-lg-1" [ngSwitch]="response.data.status">
-          <div style="text-align: center;width: 100%; font-size: 14px;" class="badge badge-pill badge-success" *ngSwitchCase="0">Waiting</div>
-          <div style="text-align: center;width: 100%;" class="badge badge-pill badge-info" *ngSwitchCase="1">Completing</div>
-          <div style="text-align: center;width: 100%;" class="badge badge-pill badge-danger" *ngSwitchCase="2">Needs More</div>
+          <div style="text-align: center; font-size: 14px;" class="badge badge-pill badge-success" *ngSwitchCase="0">Waiting</div>
+          <div style="text-align: center;font-size: 14px;" class="badge badge-pill badge-info" *ngSwitchCase="1">Completing</div>
+          <div style="text-align: center; font-size: 14px;" class="badge badge-pill badge-danger" *ngSwitchCase="2">Needs More</div>
         </div>
       </div>
       <hr>
-      <br>
+      <br style="margin:0px">
       <div class="container">
         <div class="row" style="justify-content: left;">
           <div class="col">
