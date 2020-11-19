@@ -23,7 +23,8 @@ import { UpdateAdvertComponent } from './update-advert/update-advert.component';
 import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
-
+import { AgmCoreModule} from '@agm/core';
+import { environment } from '../environments/environment';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -92,8 +93,12 @@ const customNotifierOptions: NotifierOptions = {
     IgxCardModule,
     NgImageSliderModule,
     NgSearchFilterModule,
-    NotifierModule.withConfig(customNotifierOptions)
-  ],
+    NotifierModule.withConfig(customNotifierOptions),
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsKey,
+      libraries: ['places']
+    })
+    ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
 })
