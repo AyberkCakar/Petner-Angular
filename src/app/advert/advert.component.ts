@@ -50,4 +50,23 @@ export class AdvertComponent implements OnInit {
           this.showNotification( 'error', error.message );
         }
     }
+
+
+    openModalUpdate( smallModalContent , ID: string) {
+      this.ID = ID;
+      this.modalService.open( smallModalContent, { size : 'md' } );
+    }
+
+    async onStatusUpdate()
+    {
+        try {
+          let response = await this.advertService.updateStatusAsync(this.ID);
+          console.log(response);
+          await this.showNotification( 'success', response['message'] );
+          this.modalService.dismissAll();
+          this.ngOnInit();
+        } catch (error) {
+          this.showNotification( 'error', error.message );
+        }
+    }
 }
