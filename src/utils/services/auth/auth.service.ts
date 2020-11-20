@@ -41,4 +41,9 @@ export class AuthService {
     return await this._apiFetchService.requestAsync('POST','newPassword',values);
   }
 
+  async updateAccountAsync(values)
+  {
+    return await this._apiFetchService.requestAsync('POST','user/update',values,true);
+  }
+
 }
