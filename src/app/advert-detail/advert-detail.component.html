@@ -135,7 +135,7 @@
                 </div>
                 <div class="comment_tools">
                   <ul>
-                    <li><i (click)="onRemove(index)" [hidden]="comment.isDeletable == false" class="fa fa-remove"></i>
+                    <li><i (click)="openSmallModal(smallModalContent,comment.commentID) " [hidden]="comment.isDeletable == false" class="fa fa-remove"></i>
                     </li>
                   </ul>
                 </div>
@@ -145,3 +145,24 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<ng-template #smallModalContent let-modal class="modal fade" aria-labelledby="exampleModalLabel-3">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel-3">Comment Delete</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>      You have made a Comment deletion request. Are you sure you want to continue ?
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="onDelete()">Delete</button>
+      <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+    </div>
+  </div>
+</ng-template>

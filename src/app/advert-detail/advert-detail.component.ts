@@ -3,6 +3,7 @@ import { AdvertService, CommentService } from '../../utils/services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageModel } from './image.model'
 import { NotifierService } from 'angular-notifier';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommentModel} from './comment.model';
 
 @Component({
@@ -11,6 +12,7 @@ import { CommentModel} from './comment.model';
   styleUrls: ['./advert-detail.component.scss']
 })
 export class AdvertDetailComponent implements OnInit {
+  ID: string;
   comment: CommentModel = new CommentModel();
   id: string;
   response;
@@ -18,6 +20,7 @@ export class AdvertDetailComponent implements OnInit {
   constructor(
     private _router: ActivatedRoute,
     private router: Router,
+    private modalService: NgbModal,
     private advertService: AdvertService,
     private commentService: CommentService,
     private notifier: NotifierService
@@ -71,5 +74,23 @@ export class AdvertDetailComponent implements OnInit {
     } catch (error) {
       this.showNotification( 'error', error['message'] );      
     }
+  }
+
+  openSmallModal( smallModalContent , ID: string) {
+    this.ID = ID;
+    this.modalService.open( smallModalContent, { size : 'md' } );
+  }
+
+  async onDelete()
+  {
+      try {
+        let response = await this.commentService.deleteAsync(this.ID, this.id);
+        console.log(response);
+        await this.showNotification( 'success', response['message'] );
+        this.modalService.dismissAll();
+        this.ngOnInit();
+      } catch (error) {
+        this.showNotification( 'error', error.message );
+      }
   }
 }

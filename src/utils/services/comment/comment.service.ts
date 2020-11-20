@@ -13,4 +13,8 @@ export class CommentService {
     const path = 'comment?id='+id;
     return await this._apiFetchService.requestAsync('POST',path,values,true);
   }
+  async deleteAsync(commentID, AdvID){
+    const path = 'comment/delete?AdvID='+AdvID+'&CommentID='+commentID;
+    return await this._apiFetchService.requestAsync('GET',path,null,true);
+  }
 }
