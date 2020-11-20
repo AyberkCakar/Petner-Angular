@@ -11,12 +11,14 @@ export class NavbarComponent implements OnInit {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
   name: string;
+  surname:string;
   constructor(config: NgbDropdownConfig) {
     config.placement = 'bottom-right';
   }
 
   ngOnInit() {
     this.name = localStorage.getItem('name');
+    this.surname = localStorage.getItem('surname');
   }
 
   // toggle sidebar in small devices

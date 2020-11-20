@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'advert', component: AdvertComponent },
   { path: 'addAdvert', component: AddAdvertComponent },
   { path: 'updateAdvert/:id', component: UpdateAdvertComponent },
+  { path: 'detailAdvert/:id', component: AdvertDetailComponent },
   { path: 'updateAccount', component: UpdateAccountComponent },
   { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) },
 ];

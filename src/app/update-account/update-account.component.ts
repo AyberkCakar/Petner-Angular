@@ -16,7 +16,9 @@ export class UpdateAccountComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.model = <UserModel>await this.authService.getAccountAsync()
+    console.log(this.model)
   }
 
   public showNotification( type: string, message: string ): void {

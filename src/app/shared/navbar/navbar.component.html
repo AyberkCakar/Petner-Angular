@@ -17,7 +17,7 @@
             <span class="availability-status online"></span>
           </div>
           <div class="nav-profile-text">
-            <p class="mb-1 text-black">{{name}}</p>
+            <p class="mb-1 text-black">{{name}} {{surname}}</p>
           </div>
         </a>
         <div class="dropdown-menu navbar-dropdown" ngbDropdownMenu aria-labelledby="profileDropdown">
@@ -25,10 +25,6 @@
           <a class="dropdown-item" routerLink="/user-pages/login">
             <i class="mdi mdi-logout mr-2 text-primary"></i>
             Signout
-          </a>
-          <a class="dropdown-item" routerLink="/updateAccount">
-            <i class="mdi mdi-account-convert"></i>
-            Update Accaount
           </a>
         </div>
       </li>

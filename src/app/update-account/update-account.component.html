@@ -16,15 +16,19 @@
         <form class="forms-sample">
           <div class="form-group">
             <label for="exampleInputName1">Name</label>
-            <input type="text" class="form-control" #name >  
+            <input type="text" value="{{model['data'].personName}}" class="form-control" #name >  
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Surname</label>
-            <input type="text" class="form-control" #surname >  
+            <input type="text" value="{{model['data'].personLastName}}" class="form-control" #surname >  
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Email</label>
+            <input type="text" value="{{model['data'].personEmail}}" class="form-control" #email  disabled>  
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Phone Number</label>
-            <input type="numeric" class="form-control" #phoneNumber>
+            <input type="numeric" value="{{model['data'].personPhone}}" class="form-control" #phoneNumber>
           </div>
           <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onUpdate(name.value,surname.value,phoneNumber.value)">Update</button>
           <button routerLink="/dashboard" class="btn btn-light">Cancel</button>
