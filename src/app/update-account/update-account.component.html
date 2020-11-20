@@ -1,0 +1,35 @@
+<div class="page-header">
+    <h3 class="page-title">
+      Account
+    </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/advert">Account</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Update Account</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Update Account</h4>
+        <form class="forms-sample">
+          <div class="form-group">
+            <label for="exampleInputName1">Name</label>
+            <input type="text" class="form-control" #name >  
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Surname</label>
+            <input type="text" class="form-control" #surname >  
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Phone Number</label>
+            <input type="numeric" class="form-control" #phoneNumber>
+          </div>
+          <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onUpdate(name.value,surname.value,phoneNumber.value)">Update</button>
+          <button routerLink="/dashboard" class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

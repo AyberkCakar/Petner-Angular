@@ -25,6 +25,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { AgmCoreModule} from '@agm/core';
 import { environment } from '../environments/environment';
+import { UpdateAccountComponent } from './update-account/update-account.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -80,6 +81,7 @@ const customNotifierOptions: NotifierOptions = {
     AddAdvertComponent,
     UpdateAdvertComponent,
     AdvertDetailComponent,
+    UpdateAccountComponent,
   ],
   imports: [
     BrowserModule,
