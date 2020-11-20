@@ -60,6 +60,9 @@
               </span>
             </td>
               <td>
+                <button [disabled]="advert.isDeleted == true" type="button" (click)="openModalUpdate(smallModalUpdate,advert.advertisementID)" class="btn btn-success btn-rounded btn-icon">
+                  <i class="mdi mdi-check"></i>
+                </button>
                 <button [disabled]="advert.isDeleted == true" type="button" routerLink="/updateAdvert/{{advert.advertisementID}}" class="btn btn-danger btn-rounded btn-icon">
                   <i class="mdi mdi-sync"></i>
                 </button>
@@ -90,6 +93,27 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-success" (click)="onDelete()">Delete</button>
+      <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+    </div>
+  </div>
+</ng-template>
+
+
+
+<ng-template #smallModalUpdate let-modal class="modal fade" aria-labelledby="exampleModalLabel-3">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel-3">Advert Status Update</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>      You have requested to make Ad Status Complete. Are you sure you want to continue ?
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="onStatusUpdate()">Update</button>
       <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
     </div>
   </div>

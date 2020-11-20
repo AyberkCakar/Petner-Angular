@@ -9,11 +9,13 @@ export class SidebarComponent implements OnInit {
   public uiBasicCollapsed = false;
   public samplePagesCollapsed = false;
   name: String;
+  surname: String;
   constructor() { }
 
   ngOnInit() {
 
     this.name= localStorage.getItem('name')
+    this.surname = localStorage.getItem('surname');
     const body = document.querySelector('body');
 
     // add class 'hover-open' to sidebar navitem while hover in sidebar-icon-only menu

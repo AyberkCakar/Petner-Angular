@@ -26,6 +26,12 @@ export class AdvertService {
     const path = 'advertisement/update?id='+id;
     return await this._apiFetchService.requestAsync('POST',path,values,true);
   }
+
+  
+  async updateStatusAsync(id){
+    const path = 'advertisement/setSolved?id='+id;
+    return await this._apiFetchService.requestAsync('GET',path,null,true);
+  }
   
   async deleteAsync(id){
     const path = 'advertisement/delete?id='+id;

@@ -19,7 +19,9 @@ export class AuthService {
         user
       );
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('name', response.data.name + ' ' +response.data.lastName);
+      localStorage.setItem('name', response.data.name );
+      localStorage.setItem('surname', response.data.lastName);
+
       return response;
     }catch(error)
     {
@@ -44,6 +46,11 @@ export class AuthService {
   async updateAccountAsync(values)
   {
     return await this._apiFetchService.requestAsync('POST','user/update',values,true);
+  }
+
+  async getAccountAsync()
+  {
+    return await this._apiFetchService.requestAsync('GET','user/me',null,true);
   }
 
 }
