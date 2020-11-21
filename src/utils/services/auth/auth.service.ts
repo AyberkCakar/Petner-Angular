@@ -21,6 +21,7 @@ export class AuthService {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('name', response.data.name );
       localStorage.setItem('surname', response.data.lastName);
+      localStorage.setItem('expires', response.data.expires);
 
       return response;
     }catch(error)
