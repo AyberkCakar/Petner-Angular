@@ -85,7 +85,6 @@ export class AdvertDetailComponent implements OnInit {
   {
       try {
         let response = await this.commentService.deleteAsync(this.ID, this.id);
-        console.log(response);
         await this.showNotification( 'success', response['message'] );
         this.modalService.dismissAll();
         this.ngOnInit();

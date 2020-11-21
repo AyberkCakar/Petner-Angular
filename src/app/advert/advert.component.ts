@@ -27,7 +27,6 @@ export class AdvertComponent implements OnInit {
     async ngOnInit() {
       try {
         this.model =<Array<DashboardModel>> await this.advertService.getMineAdvertAsync();
-        console.log(this.model)
       }  
       catch (error) {
         this.showNotification( 'error', error.message );      
@@ -42,7 +41,6 @@ export class AdvertComponent implements OnInit {
     {
         try {
           let response = await this.advertService.deleteAsync(this.ID);
-          console.log(response);
           await this.showNotification( 'success', response['message'] );
           this.modalService.dismissAll();
           this.ngOnInit();
@@ -61,7 +59,6 @@ export class AdvertComponent implements OnInit {
     {
         try {
           let response = await this.advertService.updateStatusAsync(this.ID);
-          console.log(response);
           await this.showNotification( 'success', response['message'] );
           this.modalService.dismissAll();
           this.ngOnInit();

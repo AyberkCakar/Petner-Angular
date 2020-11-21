@@ -18,7 +18,6 @@ export class UpdateAccountComponent implements OnInit {
 
   async ngOnInit() {
     this.model = <UserModel>await this.authService.getAccountAsync()
-    console.log(this.model)
   }
 
   public showNotification( type: string, message: string ): void {
@@ -30,10 +29,7 @@ export class UpdateAccountComponent implements OnInit {
       this.model.personName=name;
       this.model.personLastName=surname;
       this.model.personPhone=phoneNumber;
-
       let response =await this.authService.updateAccountAsync(this.model);
-      
-      console.log(response)
       this.showNotification( 'success', response['message'] );
     } catch (error) {
       this.showNotification( 'error', error.message );      

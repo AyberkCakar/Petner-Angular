@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
       this.error.message= response['message'];
       if(this.error.message == 'Giriş Başarılı')
       {
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigate(['/dashboard']);
+
       }
     }catch(e)
     {
