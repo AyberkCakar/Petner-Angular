@@ -15,11 +15,11 @@ $(document).ready(function () {
     $('#password').keyup(function () {
         var password = $('#password').val();
         if (checkStrength(password) == 'Strong') {
-            $('#sign-up').attr('disabled', false);
+            $('#sign-up').removeClass('disabled');
             $('#btnUpdatePassword').attr('disabled', false);
         }
         else {
-            $('#sign-up').attr('disabled', true);
+            $('#sign-up').addClass('disabled');
             $('#btnUpdatePassword').attr('disabled', true);
         }
     });
