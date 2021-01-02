@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NotifierService} from 'angular-notifier';
 import { UserModel } from '../user-pages/user.model';
 import { AuthService } from 'src/utils/services';
+import { UpdatePasswordModel } from './update-password-model.model';
 
 @Component({
   selector: 'app-update-account',
@@ -10,6 +11,7 @@ import { AuthService } from 'src/utils/services';
 })
 export class UpdateAccountComponent implements OnInit {
   model: UserModel = new UserModel();
+  pswModel: UpdatePasswordModel = new UpdatePasswordModel();
 
   constructor(
     private notifier: NotifierService,
@@ -36,5 +38,15 @@ export class UpdateAccountComponent implements OnInit {
     }
   }
 
+  async onUpdatePsw(newPassword: string,oldPassword: string){
+    try {
+      this.pswModel.newPassword=newPassword;
+      this.pswModel.oldPassword=oldPassword;
+      let response =await this.authService.updatePasswordAsync(this.pswModel);
+      this.showNotification( 'success', response['message'] );
+    } catch (error) {
+      this.showNotification( 'error', error.message );      
+    }
+  }
 
 }
