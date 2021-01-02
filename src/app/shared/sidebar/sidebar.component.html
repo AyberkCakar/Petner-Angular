@@ -3,7 +3,9 @@
     <li class="nav-item nav-profile">
       <a href="javascript:;" class="nav-link">
         <div class="nav-profile-image">
-          <img src="https://img.icons8.com/bubbles/2x/user-male.png" alt="profile">
+          <div style="text-align:center ">
+            <span class="avatar" [style.background-color]="color"><p class="avatarText">{{avatarText}}</p></span>
+          </div>
           <span class="login-status online"></span> <!--change to offline or busy as needed-->
         </div>
         <div class="nav-profile-text">

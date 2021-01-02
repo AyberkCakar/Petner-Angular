@@ -12,32 +12,60 @@
             <input type="text" #name class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Name">
           </div>
           <div class="form-group">
-            <input type="text" #lastname class="form-control form-control-lg" id="exampleInputUsername2" placeholder="Last Name">
+            <input type="text" #lastname class="form-control form-control-lg" id="exampleInputUsername2"
+              placeholder="Last Name">
           </div>
           <div class="form-group">
             <input type="email" #email class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
           </div>
           <div class="form-group">
-            <input type="text" #number class="form-control form-control-lg" id="exampleInputPhone" placeholder="Phone">
-          </div>
-          <div class="form-group">
-            <input type="password" #password class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+            <input type="text" #number class="form-control form-control-lg" name="input-phone"
+              placeholder="Phone">
           </div>
 
+          <!-- Password input-->
+          <div class="form-group">
+            <div class="field">
+              <div class="ui icon input" style="width: 100%;padding-top: 3px;">
+                <input id="password"  type="password" #password placeholder="Password"
+                  class="form-control input-md" data-toggle="popover" data-container="body" data-html="true"> <i
+                  class="circular eye link icon" onclick="togglePassword()"></i>
+              </div>
+            </div>
+            <div id="popover-password" style="margin-top: 5px;">
+              <p>Password Strength: <span id="result"> </span></p>
+              <div class="progress">
+                <div id="password-strength" class="progress-bar progress-bar-success" role="progressbar"
+                  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+              </div>
+              <ul class="list-unstyled" style="margin-top: 5px;">
+                <li class=""><span class="low-upper-case"><i class="fa fa-file-text"
+                      aria-hidden="true"></i></span>&nbsp; 1 lowercase &amp; 1 uppercase</li>
+                <li class=""><span class="one-number"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1
+                  number (0-9)</li>
+                <li class=""><span class="one-special-char"><i class="fa fa-file-text" aria-hidden="true"></i></span>
+                  &nbsp;1 Special Character (!@#$%^&*).</li>
+                <li class=""><span class="eight-character"><i class="fa fa-file-text"
+                      aria-hidden="true"></i></span>&nbsp; Atleast 8 Character</li>
+              </ul>
+            </div>
+          </div>
           <div class="mt-3">
-            <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-               (click)="onRegister(name.value,lastname.value,number.value,email.value,password.value)">SIGN UP</a>
+            <a id="sign-up" [class.disabled]="true" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+              (click)="onRegister(name.value,lastname.value,number.value,email.value,password.value)">SIGN UP</a>
           </div>
           <div class="text-center mt-4 font-weight-light">
             Already have an account? <a routerLink="/user-pages/login" class="text-primary">Login</a>
           </div>
 
-          <div id="alert" class="alert alert-fill-danger"  *ngIf="error.message">
+          <div id="alert" class="alert alert-fill-danger" *ngIf="error.message">
             <i class="mdi mdi-information-outline"></i>
-            <span id="message" >{{error.message}}</span>
+            <span id="message">{{error.message}}</span>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+

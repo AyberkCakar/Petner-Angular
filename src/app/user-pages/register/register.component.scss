@@ -8,3 +8,81 @@
 #message{
   font-size: 14px;
 }
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.progress {
+  height: 5px;
+}
+
+.control-label {
+  text-align: left !important;
+  padding-bottom: 7px;
+}
+
+.form-horizontal {
+  padding: 25px 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+select.form-control:focus {
+  border-color: #e9ab66;
+  box-shadow: none;
+}
+
+.block-help {
+  font-weight: 300;
+}
+
+.terms {
+  text-decoration: underline;
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.divider {
+  position: absolute;
+  height: 2px;
+  border: 1px solid #eee;
+  width: 100%;
+  top: 10px;
+  z-index: -5;
+}
+
+.ex-account {
+  position: relative;
+}
+
+.ex-account p {
+  background-color: rgba(255, 255, 255, 0.41);
+}
+
+
+.fa-file-text {
+  color: #edda39;
+}
+
+.mar-top-bot-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

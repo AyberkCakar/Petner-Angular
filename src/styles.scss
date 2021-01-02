@@ -64,3 +64,15 @@
   @include css-vars-from-palette($default-palette);
 }
 
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: inline-block;     
+}
+.avatarText {
+  font-size: 18px;
+  line-height: 40px;
+  font-family: "Verdana";
+  color: white;
+}

@@ -12,13 +12,23 @@ export class NavbarComponent implements OnInit {
   public sidebarToggled = false;
   name: string;
   surname:string;
+  avatarText:string;
+  colors: string[] = ['#fe4a49', '#2ab7ca', '#854442','#011f4b', '#4a4e4d', '#ee4035'];
+  color:string;
   constructor(config: NgbDropdownConfig) {
     config.placement = 'bottom-right';
   }
 
   ngOnInit() {
+    var totalAsciCode=0;
     this.name = localStorage.getItem('name');
     this.surname = localStorage.getItem('surname');
+    for (var i = 0; i < this.name.length; i++) {
+      totalAsciCode+=this.name.charCodeAt(i);
+    }
+    this.color= this.colors[totalAsciCode%6];
+    console.log(this.color);
+    this.avatarText=(this.name.charAt(0)+this.surname.charAt(0)).toUpperCase()
   }
 
   // toggle sidebar in small devices
