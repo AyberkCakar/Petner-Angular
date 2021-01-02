@@ -10,12 +10,22 @@ export class SidebarComponent implements OnInit {
   public samplePagesCollapsed = false;
   name: String;
   surname: String;
+  avatarText: String;
+  colors: string[] = ['#fe4a49', '#2ab7ca', '#854442','#011f4b', '#4a4e4d', '#ee4035'];
+  color:string;
   constructor() { }
 
   ngOnInit() {
 
+    var totalAsciCode=0;
     this.name= localStorage.getItem('name')
     this.surname = localStorage.getItem('surname');
+    for (var i = 0; i < this.name.length; i++) {
+      totalAsciCode+=this.name.charCodeAt(i);
+    }
+    this.color= this.colors[totalAsciCode%6];
+    console.log(this.color);
+    this.avatarText=(this.name.charAt(0)+this.surname.charAt(0)).toUpperCase()
     const body = document.querySelector('body');
 
     // add class 'hover-open' to sidebar navitem while hover in sidebar-icon-only menu

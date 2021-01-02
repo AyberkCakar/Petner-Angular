@@ -15,6 +15,7 @@ export class AdvertDetailComponent implements OnInit {
   ID: string;
   comment: CommentModel = new CommentModel();
   id: string;
+  colors: string[] = ['#fe4a49', '#2ab7ca', '#854442','#011f4b', '#4a4e4d', '#ee4035'];
   response;
   imageObject: Array<object>;
   constructor(
@@ -46,6 +47,28 @@ export class AdvertDetailComponent implements OnInit {
     } catch (error) {
       this.showNotification( 'error', error.message );      
     }
+
+    for (var i = 0; i < this.response['data']['comments'].length; i++) {
+      console.log(i);
+      let name=this.response['data']['comments'][i]["personName"]
+      let surname=this.response['data']['comments'][i]["personLastName"]
+      this.response['data']['comments'][i]['avatarText']= this.getAvatarText(name,surname)
+      this.response['data']['comments'][i]['avatarColor'] = this.getAvatarColorCode(name)
+      console.log(this.getAvatarColorCode(this.response['data']['comments'][i]["personName"]))
+    }
+
+    console.log(this.response['data']['comments'])
+  }
+  getAvatarColorCode(name:string){
+    var totalAsciCode=0;
+    for (var i = 0; i < name.length; i++) {
+      totalAsciCode+=name.charCodeAt(i);
+    }
+    return this.colors[totalAsciCode%6];
+  }
+
+  getAvatarText(name:string,surname:string){
+    return (name.charAt(0)+surname.charAt(0)).toUpperCase()
   }
 
   async createComment(comment:string){

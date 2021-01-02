@@ -116,7 +116,9 @@
       <div *ngFor="let comment of response.data.comments; let index =  index" class="new_comment" id='{{index}}'>
         <ul class="user_comment">
           <div class="user_avatar">
-            <img src="https://img.icons8.com/bubbles/2x/user-male.png">
+            <div style="text-align:center ">
+              <span class="avatar" [style.background-color]="comment.avatarColor"><p class="avatarText">{{comment.avatarText}}</p></span>
+            </div>
           </div>
           <div class="comment_body">
             <p>{{comment.comment}}</p>
