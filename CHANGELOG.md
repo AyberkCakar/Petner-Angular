@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.3.0...v1.4.0) (2021-01-02)
+
+
+### Features
+
+* added add advert page agm maps component ([434844d](https://github.com/AyberkCakar/Petner-Angular/commit/434844da386805eca821d121bb8797c25488ce0e))
+* added advert status update ([5a2ca03](https://github.com/AyberkCakar/Petner-Angular/commit/5a2ca03689ae82645ee6de3c6e3ac419b22c7b31))
+* added auth guard ([7fc574c](https://github.com/AyberkCakar/Petner-Angular/commit/7fc574c99b76e80357b4c2deb292f4b101bee3c0))
+* added comment add ([662a889](https://github.com/AyberkCakar/Petner-Angular/commit/662a889258728ca21dc39fc0ff55b9ac2aab8051))
+* added comment delete ([24bb3e5](https://github.com/AyberkCakar/Petner-Angular/commit/24bb3e59a29377488af821a7bf8f28b55b1e27da))
+* added comment list for advert ([2288c43](https://github.com/AyberkCakar/Petner-Angular/commit/2288c43135de3423aab63e01755ef5683afe52b0))
+* added comment service ([44df661](https://github.com/AyberkCakar/Petner-Angular/commit/44df661b8577f860b96829a023c6a05e40763012))
+* added comments delete ([ee8c528](https://github.com/AyberkCakar/Petner-Angular/commit/ee8c528b220295d54481ad8142245208c31a46b3))
+* added dashboard search button ([d1510f0](https://github.com/AyberkCakar/Petner-Angular/commit/d1510f08f19581f86352fd0ad6dd811526184e69))
+* added password change to update user page ([a6949ed](https://github.com/AyberkCakar/Petner-Angular/commit/a6949ed257e8748d3c9bd28dd9fd4582dcf6a597))
+* added password show/hide status ([434fdf8](https://github.com/AyberkCakar/Petner-Angular/commit/434fdf81b50c72185f4a0cbe8b0ec19bb8492f9a))
+* added Password strength ([e370665](https://github.com/AyberkCakar/Petner-Angular/commit/e3706656b6c1bd1de36c39fbf0d976ea3bfb3422))
+* added update account api connection ([6500c1b](https://github.com/AyberkCakar/Petner-Angular/commit/6500c1b60fe6fc31cc681c2d5451cd22fbd03898))
+* added update password method ([79a6767](https://github.com/AyberkCakar/Petner-Angular/commit/79a676713c51c0550eed5e59cfba758caed4970a))
+* added update password service ([a6c2585](https://github.com/AyberkCakar/Petner-Angular/commit/a6c258556bccb0049bf14fa283439782257c78eb))
+* create update account component ([d62e267](https://github.com/AyberkCakar/Petner-Angular/commit/d62e2673c87aa91b13063c8b3a356dd2a57c0e7c))
+* feat add comments section design ([a1c53ad](https://github.com/AyberkCakar/Petner-Angular/commit/a1c53adb57e84f67a5fc7c0b76dc9298657ff29c))
+
+
+### Bug Fixes
+
+* changed custom avatar icons ([4ce16e4](https://github.com/AyberkCakar/Petner-Angular/commit/4ce16e4792fd40950e0d28f3f1e48df69b5ca499))
+* fix advert add navigate ([aae1cb6](https://github.com/AyberkCakar/Petner-Angular/commit/aae1cb618f5d5aca698c168b93c8171c39363568))
+* fix advert check isDeleted ([17e2307](https://github.com/AyberkCakar/Petner-Angular/commit/17e23079fa7d0e6aee28df06f3d6264904baf408))
+* fix advert details design bug ([698772f](https://github.com/AyberkCakar/Petner-Angular/commit/698772f798649059706dbb3aefe3563508907b34))
+* fix auth guard ([d6dfa44](https://github.com/AyberkCakar/Petner-Angular/commit/d6dfa44ea125b296a31fb45616ec160615292be5))
+* fix check comment deletable ([7c703a8](https://github.com/AyberkCakar/Petner-Angular/commit/7c703a8a26b51d7ccdb5a9a7a89f1505ffe784c0))
+* fix commet add input check ([837b510](https://github.com/AyberkCakar/Petner-Angular/commit/837b5105a61d57aa141a2ffc1ee982d3415e3276))
+* fix dashboard design bug ([550618a](https://github.com/AyberkCakar/Petner-Angular/commit/550618afccb19b36b3f08013ac3960091ed64948))
+* fix heroku deploy ([427448a](https://github.com/AyberkCakar/Petner-Angular/commit/427448a9d625c1d0ac220a8ca729df648839b025))
+* fix pages design ([bb5ec78](https://github.com/AyberkCakar/Petner-Angular/commit/bb5ec78db82c6dd33733927bc09394271f6b54cd))
+* fix register page phone mask ([2d3e705](https://github.com/AyberkCakar/Petner-Angular/commit/2d3e705b7016912dbe5a00deb15b5014e8d7e368))
+* fix register page route ([33b56c9](https://github.com/AyberkCakar/Petner-Angular/commit/33b56c9acd7891de18d87420689b1fb3f222ff23))
+* fix shows username in  sidebar and navbar ([823019d](https://github.com/AyberkCakar/Petner-Angular/commit/823019d7bf0fa66dd3a1f9ff3d05fc42819e5a80))
+* fix user update ([b65cb2f](https://github.com/AyberkCakar/Petner-Angular/commit/b65cb2f18aa7390e38dad5802b3c288e109f666d))
+
 ## [1.3.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.2.0...v1.3.0) (2020-11-09)
 
 
