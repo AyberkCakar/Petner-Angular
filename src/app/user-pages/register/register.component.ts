@@ -1,8 +1,8 @@
-import { Component, OnInit ,Inject,Renderer2 } from '@angular/core';
-import {UserModel} from '../user.model'
+import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+import { UserModel } from '../user.model'
 import { AuthService } from '../../../utils/services';
 import { Router } from '@angular/router';
-import {ErrorModel} from '../../error.model'
+import { ErrorModel } from '../../error.model'
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -13,20 +13,25 @@ import { DOCUMENT } from '@angular/common';
 export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private _authService: AuthService,
-    private _renderer2: Renderer2, 
+    private _renderer2: Renderer2,
     @Inject(DOCUMENT) private _document: Document
-    ) { 
-    
+  ) {
+
   }
   model: UserModel = new UserModel();
   error: ErrorModel = new ErrorModel();
   public ngOnInit() {
 
     let script = this._renderer2.createElement('script');
-    
+
     script.type = `text/javascript`;
     script.text = `
         {
+          function togglePassword() {
+          var element = document.getElementById("password");
+          element.type = element.type == "password" ? "text" : "password";
+          }
+          
           $(document).ready(function() {
             $('#password').keyup(function() {
                 var password = $('#password').val();
@@ -117,29 +122,26 @@ export class RegisterComponent implements OnInit {
     `;
 
     this._renderer2.appendChild(this._document.body, script);
-}
+  }
 
-  async onRegister(name: string, surname: string, number: string, email: string, password: string)
-  {
-    this.model.personName=name;
-    this.model.personLastName=surname;
-    this.model.personPhone= number;
-    this.model.personEmail=email;
-    this.model.password=password;
+  async onRegister(name: string, surname: string, number: string, email: string, password: string) {
+    this.model.personName = name;
+    this.model.personLastName = surname;
+    this.model.personPhone = number;
+    this.model.personEmail = email;
+    this.model.password = password;
 
-    try{
+    try {
       let response = await this._authService.signupAsync(this.model);
-      this.error.error=response['error'];
-      this.error.message= response['message'];
-      if(this.error.message == 'Kayıt Başarılı')
-      {
+      this.error.error = response['error'];
+      this.error.message = response['message'];
+      if (this.error.message == 'Kayıt Başarılı') {
         this.router.navigateByUrl('/user-pages/login');
       }
 
-    }catch(e)
-    {
-      this.error.error=true;
-      this.error.message= '* Girilen Bilgiler Hatalı veya Eksik !';
+    } catch (e) {
+      this.error.error = true;
+      this.error.message = '* Girilen Bilgiler Hatalı veya Eksik !';
     }
   }
 }

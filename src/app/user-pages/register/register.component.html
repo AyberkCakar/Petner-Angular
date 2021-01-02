@@ -25,9 +25,13 @@
 
           <!-- Password input-->
           <div class="form-group">
-            <input id="password" name="password" type="password" #password placeholder="Password"
-              class="form-control input-md" data-toggle="popover" data-container="body"
-               data-html="true">
+            <div class="field">
+              <div class="ui icon input" style="width: 100%;padding-top: 3px;">
+                <input id="password" name="password" type="password" #password placeholder="Password"
+                  class="form-control input-md" data-toggle="popover" data-container="body" data-html="true"> <i
+                  class="circular eye link icon" onclick="togglePassword()"></i>
+              </div>
+            </div>
             <div id="popover-password" style="margin-top: 5px;">
               <p>Password Strength: <span id="result"> </span></p>
               <div class="progress">
