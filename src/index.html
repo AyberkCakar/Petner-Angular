@@ -1,18 +1,31 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Petner</title>
   <base href="/">
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script>
+    $(document).ready(function ($) {
+      $('input[name="input-phone"]').mask('(000) 000 0000');
+    })
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body class="mat-typography">
   <app-root>
-      <div class="main-spinner-wrapper">
-        <div class="donut"></div>
-      </div>
+    <div class="main-spinner-wrapper">
+      <div class="donut"></div>
+    </div>
   </app-root>
 </body>
+
 </html>
