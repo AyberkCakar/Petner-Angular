@@ -16,7 +16,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Sokak hayvanlarının yardımına koşuyoruz, onlar için beslenme yardımı, aşılama ve sahiplendirme gibi konularda sokak hayvanları ve gönüllüleri buluşturuyoruz.
 
-> Projenin Backend kısmı için [tıklayın]("https://github.com/iremcelikbilek/Petner-Backend")
+> Projenin Backend kısmı için [tıklayın](https://github.com/iremcelikbilek/Petner-Backend "tıklayın")
 
 
 ------------
