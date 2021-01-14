@@ -48,12 +48,23 @@ export class AddAdvertComponent implements OnInit {
   handleFileInput(imageInput: any) {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    reader.addEventListener('load', (event: any) => {
-      this.selectedFile = new ImageSnippet(event.target.result, file);
-      this.imageupload(this.selectedFile)
-    });
-    reader.readAsDataURL(file);
+    const splitFile = file.name.split('.');
+    const imageArray = ['png','jpeg','jpg','gif'];
+    var splitFileText = splitFile[splitFile.length-1].toLowerCase()
+
+    if(imageArray.indexOf(splitFileText) >= 0)
+    {
+      reader.addEventListener('load', (event: any) => {
+        this.selectedFile = new ImageSnippet(event.target.result, file);
+        this.imageupload(this.selectedFile)
+      });
+      reader.readAsDataURL(file);
+    }
+    else{
+      this.showNotification( 'error', 'Sadece Resim Formatı Olabilir !');
+    }
   }
+  
   async imageupload(selectfile: ImageSnippet) {
     try {
       const response = await this.imageService.uploadImageAsync(selectfile.file);
