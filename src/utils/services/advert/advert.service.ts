@@ -24,6 +24,11 @@ export class AdvertService {
 
   async getFavoriteAdvertAsync(){
     return await this._apiFetchService.requestAsync('GET','user/favorites',null,true);
+  }  
+  
+  async favoriteAdvertisementAsync(value,id){
+    const path = 'advertisement/favorite?id='+id+'&value='+value;
+    return await this._apiFetchService.requestAsync('GET',path,null,true);
   }
 
   async updateAsync(values,id){

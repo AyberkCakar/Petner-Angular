@@ -11,18 +11,32 @@
   <div class="card">
     <div class="card-body ">
       <h2 style="text-align: center;" class="card-title">
-        {{response.data.advertisementTitle}}</h2>
+        {{advertisement.advertisementTitle}}</h2>
       <div class=row style="margin-bottom: 0px;">
         <div class="col-lg-10">
-          <p style="text-align: left;margin: 0px;">{{response.data.advEntryDate | date:'medium'}}</p>
+          <p style="text-align: left;margin: 0px;">{{advertisement.advEntryDate | date:'medium'}}</p>
         </div>
-        <div class="col-lg-2" [ngSwitch]="response.data.status">
+        <div class="col-lg-2" [ngSwitch]="advertisement.status">
           <div style="float: right;font-size: 14px;" class="badge badge-pill badge-success" *ngSwitchCase="0">Waiting</div>
           <div style="float: right;font-size: 14px;" class="badge badge-pill badge-info" *ngSwitchCase="1">Completing</div>
           <div style="float: right; font-size: 14px;" class="badge badge-pill badge-danger" *ngSwitchCase="2">Needs More</div>
         </div>
       </div>
       <hr>
+      <div class=row style="margin-bottom: 0px;">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2"  [ngSwitch]="advertisement.isFavorited">
+          <div class="row"> 
+            <div>
+                <button (click)="onAdvertisementLike(advertisement.advertisementID,advertisement.isFavorited)" *ngSwitchCase="true" id="like" class="btn btn-danger btn-rounded btn-icon"><i id="{{comment.commentID}}" class="fa fa-heart like"></i></button>
+                <button (click)="onAdvertisementLike(advertisement.advertisementID,advertisement.isFavorited)" *ngSwitchCase="false" id="like" class="btn btn-danger btn-rounded btn-icon"><i id="{{comment.commentID}}"  class="fa fa-heart dislike"></i></button>
+              </div>
+
+                <div style="margin-top: 4px; margin-left: 15px"><i class="fa fa-users"></i>&nbsp;  {{advertisement.favoriteCount}} Kişi Beğendi</div>
+            </div>
+        </div>
+      </div>
       <br style="margin:0px">
       <div class="container">
         <div class="row" style="justify-content: left;">
