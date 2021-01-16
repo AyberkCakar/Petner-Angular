@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.4.0...v1.5.0) (2021-01-16)
+
+
+### Features
+
+* added account blocking for login screen ([934ed3f](https://github.com/AyberkCakar/Petner-Angular/commit/934ed3f31f596c710ce9fc458c5e3bd922071403))
+* added advert add image format check ([175d271](https://github.com/AyberkCakar/Petner-Angular/commit/175d2713d555a873d6a3c40ce700f41061c749f8))
+* added comment favorite like and dislike ([fe2d732](https://github.com/AyberkCakar/Petner-Angular/commit/fe2d732d88997792a43ca6077eb5b64972448224))
+* added favorite page component ([74c2c5b](https://github.com/AyberkCakar/Petner-Angular/commit/74c2c5b39d9808fba1c69608c175d3d0f3e169a2))
+* added like button for comments and advert detail ([5ae516f](https://github.com/AyberkCakar/Petner-Angular/commit/5ae516fdc54da2137a03f631c3f42195d087a89a))
+* completed favorite page ([2157f62](https://github.com/AyberkCakar/Petner-Angular/commit/2157f62f06dd9b75f051436371abf62286924b9d))
+
+
+### Bug Fixes
+
+* favorite page design bug ([439e1c5](https://github.com/AyberkCakar/Petner-Angular/commit/439e1c54129520a13aa52de96ad83cdc3ffffbbd))
+
 ## [1.4.0](https://github.com/AyberkCakar/Petner-Angular/compare/v1.3.0...v1.4.0) (2021-01-02)
 
 
