@@ -113,12 +113,13 @@
           </div>
         </div>
       </div>
-      <div *ngFor="let comment of response.data.comments; let index =  index" class="new_comment" id='{{index}}'>
+      <div *ngFor="let comment of comments; let index =  index" class="new_comment" id='{{index}}'>
         <ul class="user_comment">
           <div class="user_avatar">
             <div style="text-align:center ">
               <span class="avatar" [style.background-color]="comment.avatarColor"><p class="avatarText">{{comment.avatarText}}</p></span>
             </div>
+            
           </div>
           <div class="comment_body">
             <p>{{comment.comment}}</p>
@@ -126,9 +127,13 @@
           <div class="comment_toolbar">
             <div class="comment_details">
               <ul>
-
+                <li [ngSwitch]="comment.isFavorited">
+                  <button (click)="onLike(response.data.advertisementID,comment.commentID,comment.isFavorited)" *ngSwitchCase="true" id="like" class="btn btn-danger btn-rounded btn-icon"><i id="{{comment.commentID}}" class="fa fa-heart like"></i></button>
+                  <button (click)="onLike(response.data.advertisementID,comment.commentID,comment.isFavorited)" *ngSwitchCase="false" id="like" class="btn btn-danger btn-rounded btn-icon"><i id="{{comment.commentID}}"  class="fa fa-heart dislike"></i></button>
+                </li>
+                <li><i class="fa fa-users"></i>&nbsp;  {{comment.favoritedCount}} Kişi Beğendi</li>
                 <li><i class="fa fa-calendar"></i> {{comment.date}}</li>
-                <li><i class="fa fa-pencil"></i> <span class="user">{{comment.personName}}
+                <li><i class="fa fa-pencil"></i>&nbsp; <span class="user">{{comment.personName}}
                     {{comment.personLastName}}</span></li>
               </ul>
             </div>

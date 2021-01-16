@@ -13,11 +13,14 @@ import { CommentModel} from './comment.model';
 })
 export class AdvertDetailComponent implements OnInit {
   ID: string;
+  comments:Array<CommentModel>;
   comment: CommentModel = new CommentModel();
   id: string;
   colors: string[] = ['#fe4a49', '#2ab7ca', '#854442','#011f4b', '#4a4e4d', '#ee4035'];
   response;
   imageObject: Array<object>;
+  favorite;
+
   constructor(
     private _router: ActivatedRoute,
     private router: Router,
@@ -31,6 +34,40 @@ export class AdvertDetailComponent implements OnInit {
     this.notifier.notify(type, message);
   }
 
+  async onLike(advertisementID,commentID,isFavorited){
+    try {
+      for (var i = 0; i < this.comments.length; i++) {
+        if(this.comments[i].commentID==commentID)
+        {
+          if(isFavorited == false){
+            this.favorite=true;
+          }
+          else{
+            this.favorite=false;
+          }
+        }
+      }
+
+      this.commentService.favoriteCommentAsync(this.favorite,advertisementID,commentID);
+
+      for (var i = 0; i < this.comments.length; i++) {
+        if(this.comments[i].commentID==commentID)
+        {
+          if(isFavorited == false){
+            this.comments[i].isFavorited=true;
+            this.comments[i].favoritedCount=Number(this.comments[i].favoritedCount)+1;
+          }
+          else{
+            this.comments[i].isFavorited=false;
+            this.comments[i].favoritedCount=Number(this.comments[i].favoritedCount)-1;
+          }
+        }
+      }
+    } catch (error) {
+      this.showNotification( 'error', 'Yorumu beğenirken bir hata oluştu !' );      
+    }
+  }
+
   async ngOnInit() {
     try {
       let image = [];
@@ -38,6 +75,10 @@ export class AdvertDetailComponent implements OnInit {
       const model: ImageModel = new ImageModel();
       this.id = this._router.snapshot.paramMap.get('id');
       this.response = await this.advertService.findAdvertAsync(this.id);
+      this.comments= <Array<CommentModel>>this.response['data'].comments;
+      console.log(this.response);
+      console.log(this.comments);
+
       this.response['data'].advertisementAnimal.animalPhotos.forEach(await function (value) {
         model.image = value;
         model.thumbImage = value;
@@ -48,16 +89,12 @@ export class AdvertDetailComponent implements OnInit {
       this.showNotification( 'error', error.message );      
     }
 
-    for (var i = 0; i < this.response['data']['comments'].length; i++) {
-      console.log(i);
-      let name=this.response['data']['comments'][i]["personName"]
-      let surname=this.response['data']['comments'][i]["personLastName"]
-      this.response['data']['comments'][i]['avatarText']= this.getAvatarText(name,surname)
-      this.response['data']['comments'][i]['avatarColor'] = this.getAvatarColorCode(name)
-      console.log(this.getAvatarColorCode(this.response['data']['comments'][i]["personName"]))
+    for (var i = 0; i < this.comments.length; i++) {
+      let name=this.comments[i]["personName"]
+      let surname=this.comments[i]["personLastName"]
+      this.comments[i]['avatarText']= this.getAvatarText(name,surname)
+      this.comments[i]['avatarColor'] = this.getAvatarColorCode(name)
     }
-
-    console.log(this.response['data']['comments'])
   }
   getAvatarColorCode(name:string){
     var totalAsciCode=0;
