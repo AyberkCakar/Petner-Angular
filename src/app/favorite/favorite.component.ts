@@ -23,7 +23,6 @@ export class FavoriteComponent implements OnInit {
   async ngOnInit() {
     try {
       this.model =<Array<DashboardModel>> await this.advertService.getFavoriteAdvertAsync();
-      console.log(this.model);
     }  
     catch (error) {
       this.showNotification( 'error', error.message );      

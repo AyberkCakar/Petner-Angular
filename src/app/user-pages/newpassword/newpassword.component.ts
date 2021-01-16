@@ -38,7 +38,6 @@ export class NewpasswordComponent implements OnInit {
       }else{
         this.showNotification('error', response['message']);
       }
-      
 
       if( this.error.message == 'Şifre başarıyla güncellendi')
       {

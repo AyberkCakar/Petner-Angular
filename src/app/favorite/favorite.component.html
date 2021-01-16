@@ -32,11 +32,11 @@
             <tbody>
               <tr *ngFor="let advert of model['data']">
                 <td class="py-1"  [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" >
-                  <img src={{advert.advertisementAnimal.animalPhoto}} alt="image" />
+                  <img src={{advert.advertisementAnimal.animalPhotos}} alt="image" />
                 </td>
                 <td [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" > {{advert.advertisementTitle}} </td>
                 <td [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" > {{advert.advertisementAnimal.genre}}</td>
-                <td>{{advert.date | date:'mediumDate'}} </td>
+                <td>{{advert.advEntryDate | date:'mediumDate'}} </td>
                 <td >
                   <span [ngSwitch]="advert.advertisementType">
                   <span *ngSwitchCase="0">Food Help</span>

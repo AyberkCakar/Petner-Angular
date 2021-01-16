@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
         else {
           count = Number(emailState) + 1;
           localStorage.setItem(email, String(count));
-
         }
       }
       else {
