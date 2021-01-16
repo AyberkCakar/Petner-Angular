@@ -7,12 +7,14 @@ import { UpdateAdvertComponent } from './update-advert/update-advert.component';
 import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { AuthGuard } from './../utils/guard';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent ,canActivate: [AuthGuard]},
   { path: 'advert', component: AdvertComponent },
+  { path: 'favorite', component: FavoriteComponent },
   { path: 'addAdvert', component: AddAdvertComponent },
   { path: 'updateAdvert/:id', component: UpdateAdvertComponent },
   { path: 'detailAdvert/:id', component: AdvertDetailComponent },

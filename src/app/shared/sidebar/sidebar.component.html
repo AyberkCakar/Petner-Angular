@@ -32,6 +32,12 @@
         <i class="mdi mdi mdi-book-open-variant menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': advert.isActive }">
+      <a class="nav-link" routerLink="/favorite" routerLinkActive #advert="routerLinkActive">
+        <span class="menu-title">Favorite</span>
+        <i class="mdi mdi mdi-book-open-variant menu-icon"></i>
+      </a>
+    </li>
 
   </ul>
 </nav>

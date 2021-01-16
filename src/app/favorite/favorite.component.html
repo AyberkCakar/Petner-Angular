@@ -1,0 +1,64 @@
+<div class="page-header">
+    <h3 class="page-title">
+      Advert
+    </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:;">Advert</a></li>
+        <li class="breadcrumb-item active" aria-current="page">My Favorite List</li>
+      </ol>
+    </nav>
+  </div>
+  
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">My Favorite List</h4>
+  
+        
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th> Animal Photo</th>
+                <th> Advert Title </th>
+                <th>  Animal Name </th>
+                <th>  Advert Creation Date  </th>
+                <th>  Advert Type </th>
+                <th> Advert Status </th>
+            
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let advert of model['data']">
+                <td class="py-1"  [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" >
+                  <img src={{advert.advertisementAnimal.animalPhoto}} alt="image" />
+                </td>
+                <td [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" > {{advert.advertisementTitle}} </td>
+                <td [routerLink]="[advert.isDeleted==false ?  '/detailAdvert/'+advert.advertisementID: null]" > {{advert.advertisementAnimal.genre}}</td>
+                <td>{{advert.date | date:'mediumDate'}} </td>
+                <td >
+                  <span [ngSwitch]="advert.advertisementType">
+                  <span *ngSwitchCase="0">Food Help</span>
+                  <span *ngSwitchCase="1">Ownership</span>
+                  <span *ngSwitchCase="2">Vaccination</span>
+                </span> 
+              </td>
+                <td>
+                  <span [ngSwitch]="advert.status">
+                  <span *ngSwitchCase="0"> Waiting </span>
+                  <span *ngSwitchCase="1"> Completing</span>
+                  <span *ngSwitchCase="2"> Needs More</span>
+                </span>
+              </td>
+               
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
