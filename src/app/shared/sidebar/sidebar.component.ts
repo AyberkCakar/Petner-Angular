@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
       totalAsciCode+=this.name.charCodeAt(i);
     }
     this.color= this.colors[totalAsciCode%6];
-    console.log(this.color);
     this.avatarText=(this.name.charAt(0)+this.surname.charAt(0)).toUpperCase()
     const body = document.querySelector('body');
 

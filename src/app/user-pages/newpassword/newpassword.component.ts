@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {PasswordModel} from '../password.model'
 import { AuthService } from '../../../utils/services';
 import {ErrorModel} from '../../error.model'
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-newpassword',
@@ -11,7 +12,11 @@ import {ErrorModel} from '../../error.model'
 })
 export class NewpasswordComponent implements OnInit {
 
-  constructor(private router: Router, private _authService: AuthService) { }
+  constructor(private router: Router, private _authService: AuthService , private notifier: NotifierService) { }
+
+  public showNotification(type: string, message: string): void {
+    this.notifier.notify(type, message);
+  }
 
   ngOnInit(): void {
   }
@@ -28,15 +33,21 @@ export class NewpasswordComponent implements OnInit {
       let response = await this._authService.newpasswordAsync(this.model);
       this.error.error=response['error'];
       this.error.message = response['message'];
+      if(this.error.error == false){
+        this.showNotification('success', response['message']);
+      }else{
+        this.showNotification('error', response['message']);
+      }
 
       if( this.error.message == 'Şifre başarıyla güncellendi')
       {
+        localStorage.setItem(mail, '0');
         this.router.navigateByUrl('/user-pages/login');
       }
     }catch(e)
     {
       this.error.error=true;
-      this.error.message= '* Bir Problem Oluştu !';
+      this.showNotification('error', '* Bir Problem Oluştu !');
     }
   }
 }
